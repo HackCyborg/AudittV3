@@ -155,7 +155,7 @@ const HowItWorksSection: React.FC = () => {
                 <h3 className="text-2xl md:text-3xl font-bold mb-4 text-slate-800">Start Your Security Journey Today</h3>
                 <p className="text-slate-600 mb-8">Ready to secure your Web3 project with industry-leading audit protocols?</p>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <Button size="lg" className="btn-primary">
+                  <Button size="lg" className="bg-black hover:bg-black/90 text-white">
                     Schedule a Demo <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                   <Button size="lg" variant="outline" className="btn-outline">
