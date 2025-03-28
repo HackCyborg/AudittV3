@@ -1,77 +1,52 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import SectionHeading from "@/components/shared/section-heading";
-import {
-  Fingerprint,
-  Target,
-  Trophy,
-  ShieldCheck,
-  Zap,
-  Users,
-  ArrowRight,
-  CheckCircle2,
-  AlertTriangle,
-  Banknote,
-  Shield,
-} from "lucide-react";
+import React from 'react';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, ShieldCheck } from 'lucide-react';
+import { Link } from 'wouter';
 
 const BugBounty: React.FC = () => {
-  const primaryColor = "#032757";
-
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
       <section className="relative py-20 lg:py-28 overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-b from-gray-50/70 via-white to-white z-0"></div>
-        <div className="absolute top-1/4 -left-24 w-64 h-64 bg-gray-100 rounded-full blur-3xl opacity-70"></div>
-        <div className="absolute bottom-1/4 -right-24 w-64 h-64 bg-gray-100 rounded-full blur-3xl opacity-70"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#032757]/5 via-white to-white z-0"></div>
+        <div className="absolute top-1/4 -left-24 w-64 h-64 bg-[#032757]/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 -right-24 w-64 h-64 bg-[#032757]/5 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-gray-50 text-[#032757] text-sm font-medium mb-6">
-                <ShieldCheck className="h-4 w-4 mr-2" /> Community-Powered
-                Security
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#032757]/10 text-[#032757] text-sm font-medium mb-6">
+                <ShieldCheck className="h-4 w-4 mr-2" /> Community-Powered Security
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold text-[#032757] mb-6 leading-tight">
                 Bug Bounty Programs
               </h1>
               <p className="text-slate-600 text-lg mb-8 md:pr-8 leading-relaxed">
-                Leverage our community of ethical hackers to identify and fix
-                vulnerabilities in your Web3 applications before they can be
-                exploited.
+                Join our network of security researchers and help protect Web3 projects from vulnerabilities.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-black hover:bg-black/90 text-white">
-                  Launch a Bug Bounty <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button size="lg" variant="outline" className="btn-outline">
-                  Join as a Hunter
+                <Link href="/bug-bounty/signup">
+                  <Button size="lg" className="bg-[#032757] hover:bg-[#032757]/90 text-white">
+                    Start Hunting <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
+                <Button size="lg" variant="outline" className="border-[#032757] text-[#032757] hover:bg-[#032757]/10">
+                  View Active Programs
                 </Button>
               </div>
             </div>
             <div className="md:w-1/2 flex justify-center">
-              <div className="relative w-80 h-80">
-                <div className="absolute inset-0 bg-gradient-to-r from-[#032757]/10 to-blue-400/10 rounded-full animate-pulse"></div>
-                <div className="absolute inset-0 border-2 border-dashed border-[#032757]/30 rounded-full animate-spin-slow"></div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative bg-white w-48 h-48 rounded-full shadow-lg flex items-center justify-center">
-                    <Fingerprint className="w-28 h-28 text-[#032757]" />
-                    <div
-                      className="absolute top-0 -right-4 w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white shadow-lg animate-bounce"
-                      style={{ animationDuration: "2s" }}
-                    >
-                      <AlertTriangle className="w-6 h-6" />
-                    </div>
-                    <div
-                      className="absolute -bottom-6 -left-4 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center text-white shadow-lg animate-bounce"
-                      style={{
-                        animationDuration: "2.5s",
-                        animationDelay: "0.5s",
-                      }}
-                    >
-                      <Banknote className="w-7 h-7" />
+              <div className="relative w-full max-w-lg">
+                <div className="absolute top-0 -left-4 w-72 h-72 bg-[#032757]/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                <div className="absolute top-0 -right-4 w-72 h-72 bg-[#032757]/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                <div className="absolute -bottom-8 left-20 w-72 h-72 bg-[#032757]/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+                <div className="relative">
+                  <div className="p-8 bg-white rounded-2xl shadow-xl backdrop-blur-lg bg-opacity-80">
+                    <div className="space-y-4">
+                      <div className="h-2 w-20 bg-[#032757] rounded"></div>
+                      <div className="h-2 w-full bg-gray-200 rounded"></div>
+                      <div className="h-2 w-full bg-gray-200 rounded"></div>
+                      <div className="h-2 w-3/4 bg-gray-200 rounded"></div>
                     </div>
                   </div>
                 </div>
@@ -398,3 +373,17 @@ const BugBounty: React.FC = () => {
 };
 
 export default BugBounty;
+import SectionHeading from "@/components/shared/section-heading";
+import {
+  Fingerprint,
+  Target,
+  Trophy,
+  ShieldCheck,
+  Zap,
+  Users,
+  ArrowRight,
+  CheckCircle2,
+  AlertTriangle,
+  Banknote,
+  Shield,
+} from "lucide-react";
