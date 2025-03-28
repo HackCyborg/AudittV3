@@ -378,7 +378,7 @@ const BugBounty: React.FC = () => {
               </Button>
               <Button
                 variant="outline"
-                className="border-white text-white hover:bg-white/10"
+                className="bg-white text-[#032757] hover:bg-white/90"
                 size="lg"
               >
                 Talk to an Expert

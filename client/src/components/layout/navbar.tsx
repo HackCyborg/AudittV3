@@ -78,11 +78,7 @@ const Navbar = () => {
                     Overview
                   </Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/compliance" className="w-full cursor-pointer">
-                    Regulatory & Compliance
-                  </Link>
-                </DropdownMenuItem>
+
                 <DropdownMenuItem asChild>
                   <Link href="/post-project" className="w-full cursor-pointer">
                     Post a Project
