@@ -8,11 +8,11 @@ import PartnerLogo5 from "../../assets/partner-logo5.svg";
 
 const HeroSection: React.FC = () => {
   return (
-    <section className="relative overflow-hidden bg-gray-900 text-white">
+    <section className="relative overflow-hidden bg-black text-white">
       {/* Futuristic Background Elements */}
       <div className="absolute inset-0 z-0 flex items-center justify-center">
-        <div className="absolute w-full h-full bg-gradient-to-b from-gray-50 via-gray-800 to-gray opacity-90"></div>
-        <div className="absolute w-full h-full bg-[url('/assets/blockchain-network.svg')] bg-cover bg-center opacity-30"></div>
+        <div className="absolute w-full h-full bg-gradient-to-b from-gray-900 via-gray-800 to-black opacity-90"></div>
+        <div className="absolute w-full h-full bg-[url('/assets/blockchain-network.svg')] bg-cover bg-center opacity-20"></div>
       </div>
 
       <div className="relative z-10 h-[600px] flex flex-col items-center justify-center">
@@ -36,19 +36,19 @@ const HeroSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center animate-slide-up">
             <button
               onClick={() => window.open("/bug-bounty", "_self")}
-              className="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white text-base rounded-lg transition-all px-6 py-3 cursor-pointer shadow-md shadow-gray-500"
+              className="inline-flex items-center bg-black hover:bg-black/80 text-white text-base rounded-lg transition-all px-6 py-3 cursor-pointer shadow-md shadow-black/30 border border-gray-800"
             >
               <Shield className="h-5 w-5 mr-2" /> Explore Bug Bounties
             </button>
             <button
               onClick={() => window.open("/post-project", "_self")}
-              className="inline-flex items-center bg-gray-800 hover:bg-gray-700 text-white text-base rounded-lg transition-all px-6 py-3 cursor-pointer shadow-md shadow-gray-600"
+              className="inline-flex items-center bg-gray-900 hover:bg-gray-800 text-white text-base rounded-lg transition-all px-6 py-3 cursor-pointer shadow-md shadow-black/30 border border-gray-800"
             >
               <FileEdit className="h-5 w-5 mr-2" /> Post Your Project
             </button>
             <button
               onClick={() => window.open("/verified-auditors", "_self")}
-              className="inline-flex items-center bg-gray-600 hover:bg-gray-500 text-white text-base rounded-lg transition-all px-6 py-3 cursor-pointer shadow-md shadow-gray-700"
+              className="inline-flex items-center bg-black hover:bg-black/80 text-white text-base rounded-lg transition-all px-6 py-3 cursor-pointer shadow-md shadow-black/30 border border-gray-800"
             >
               <ShieldCheck className="h-5 w-5 mr-2" /> Verified Auditor Network
             </button>
@@ -60,7 +60,7 @@ const HeroSection: React.FC = () => {
       <div className="bg-black py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <div className="inline-block mb-8 px-4 py-1 bg-gray-800 rounded-full text-sm font-medium text-gray-200 animate-pulse">
+            <div className="inline-block mb-8 px-4 py-1 bg-gray-900 border border-gray-800 rounded-full text-sm font-medium text-gray-300 animate-pulse">
               Trusted by Industry Leaders
             </div>
             <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center animate-fade-in">
