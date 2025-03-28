@@ -1,7 +1,20 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, ShieldCheck } from 'lucide-react';
 import { Link } from 'wouter';
+import SectionHeading from "@/components/shared/section-heading";
+import {
+  Fingerprint,
+  Target,
+  Trophy,
+  ShieldCheck,
+  Zap,
+  Users,
+  ArrowRight,
+  CheckCircle2,
+  AlertTriangle,
+  Banknote,
+  Shield,
+} from "lucide-react";
 
 const BugBounty: React.FC = () => {
   return (
@@ -373,17 +386,3 @@ const BugBounty: React.FC = () => {
 };
 
 export default BugBounty;
-import SectionHeading from "@/components/shared/section-heading";
-import {
-  Fingerprint,
-  Target,
-  Trophy,
-  ShieldCheck,
-  Zap,
-  Users,
-  ArrowRight,
-  CheckCircle2,
-  AlertTriangle,
-  Banknote,
-  Shield,
-} from "lucide-react";

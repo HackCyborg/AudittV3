@@ -102,13 +102,13 @@ const Navbar = () => {
             </Link>
 
             <Link
-              href="/audit-marketplace"
+              href="/compliance"
               className={cn(
                 "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                isActiveLink("/audit-marketplace") && "text-gray-900",
+                isActiveLink("/compliance") && "text-gray-900",
               )}
             >
-              Marketplace
+              Regulatory & Compliance
             </Link>
 
             <Link
