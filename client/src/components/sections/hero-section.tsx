@@ -1,15 +1,16 @@
 import React from "react";
 import { Shield, ShieldCheck, FileEdit } from "lucide-react";
 import { SiEthereum, SiPolygon, SiChainlink, SiBinance, SiSolana, SiZcash, SiRipple, SiLitecoin, SiStellar, SiDogecoin, SiMonero, SiBitcoin } from "react-icons/si";
+import BackgroundAnimation from "../animations/background-animation";
 
 const HeroSection: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-gray-900 text-white">
-      {/* Futuristic Background Elements */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center">
-        <div className="absolute w-full h-full bg-gradient-to-b from-white-100 via-gray-100 to-gray opacity-50"></div>
-        <div className="absolute w-full h-full bg-[url('/assets/blockchain-network.svg')] bg-cover bg-center opacity-30"></div>
-      </div>
+      {/* Lottie Animation Background */}
+      <BackgroundAnimation opacity={0.15} />
+      
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 z-1 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 opacity-70"></div>
 
       <div className="relative z-10 h-[600px] flex flex-col items-center justify-center">
         <div className="w-full max-w-5xl mx-auto px-4 text-center relative">
