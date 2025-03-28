@@ -21,48 +21,38 @@ const BugBounty: React.FC = () => {
     <div className="min-h-screen">
       <section className="relative py-20 lg:py-28 overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#032757]/5 via-white to-white z-0"></div>
-        <div className="absolute top-1/4 -left-24 w-64 h-64 bg-[#032757]/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-1/4 -right-24 w-64 h-64 bg-[#032757]/5 rounded-full blur-3xl"></div>
+        <div className="absolute inset-0 bg-[#00264d] z-0"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
-              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#032757]/10 text-[#032757] text-sm font-medium mb-6">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-white text-sm font-medium mb-6">
                 <ShieldCheck className="h-4 w-4 mr-2" /> Community-Powered Security
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-[#032757] mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Bug Bounty Programs
               </h1>
-              <p className="text-slate-600 text-lg mb-8 md:pr-8 leading-relaxed">
+              <p className="text-white/80 text-lg mb-8 md:pr-8 leading-relaxed">
                 Join our network of security researchers and help protect Web3 projects from vulnerabilities.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/bug-bounty/signup">
-                  <Button size="lg" className="bg-[#032757] hover:bg-[#032757]/90 text-white">
+                  <Button size="lg" className="bg-white hover:bg-white/90 text-[#00264d]">
                     Start Hunting <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
-                <Button size="lg" variant="outline" className="border-[#032757] text-[#032757] hover:bg-[#032757]/10">
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
                   View Active Programs
                 </Button>
               </div>
             </div>
             <div className="md:w-1/2 flex justify-center">
               <div className="relative w-full max-w-lg">
-                <div className="absolute top-0 -left-4 w-72 h-72 bg-[#032757]/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-                <div className="absolute top-0 -right-4 w-72 h-72 bg-[#032757]/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-                <div className="absolute -bottom-8 left-20 w-72 h-72 bg-[#032757]/30 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-                <div className="relative">
-                  <div className="p-8 bg-white rounded-2xl shadow-xl backdrop-blur-lg bg-opacity-80">
-                    <div className="space-y-4">
-                      <div className="h-2 w-20 bg-[#032757] rounded"></div>
-                      <div className="h-2 w-full bg-gray-200 rounded"></div>
-                      <div className="h-2 w-full bg-gray-200 rounded"></div>
-                      <div className="h-2 w-3/4 bg-gray-200 rounded"></div>
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src="/src/assets/images/bug-bounty-graphic.png" 
+                  alt="Bug Bounty Program" 
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </div>
           </div>
