@@ -2,6 +2,8 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'wouter';
 import SectionHeading from "@/components/shared/section-heading";
+import Lottie from "lottie-react";
+import bugAnimation from "@/assets/animations/bug-animation.json";
 import {
   Fingerprint,
   Target,
@@ -21,7 +23,10 @@ const BugBounty: React.FC = () => {
     <div className="min-h-screen">
       <section className="relative py-20 lg:py-28 overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-[#00264d] z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#001c3a] to-[#00264d] z-0"></div>
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIHZpZXdCb3g9IjAgMCAxNCAxNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTQgMUM5LjAzOTQzIDEgNS45NjA3OCA1Ljk2MDU3IDEgNS45NjA1N1YxNEgxNFYxWiIgc3Ryb2tlPSIjODA4MDgwIiBzdHJva2Utb3BhY2l0eT0iMC4wNSIgc3Ryb2tlLXdpZHRoPSIyIi8+PC9zdmc+Cg==')] opacity-30 z-0"></div>
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-24 -right-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center">
@@ -48,10 +53,10 @@ const BugBounty: React.FC = () => {
             </div>
             <div className="md:w-1/2 flex justify-center">
               <div className="relative w-full max-w-lg">
-                <img 
-                  src="/src/assets/images/bug-bounty-graphic.png" 
-                  alt="Bug Bounty Program" 
-                  className="w-full h-auto object-contain"
+                <Lottie 
+                  animationData={bugAnimation} 
+                  className="w-full"
+                  style={{ filter: "drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.2))" }}
                 />
               </div>
             </div>
