@@ -172,7 +172,7 @@ const FeaturesSection: React.FC = () => {
         <div className="mt-20 text-center">
           <h3 className="text-2xl font-bold mb-6 text-slate-800">Ready to secure your Web3 project?</h3>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <Button size="lg" className="btn-primary">
+            <Button size="lg" className="bg-black hover:bg-black/90 text-white">
               Explore Our Services
             </Button>
             <Button size="lg" variant="outline" className="btn-outline">

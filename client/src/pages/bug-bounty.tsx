@@ -43,7 +43,7 @@ const BugBounty: React.FC = () => {
                 exploited.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="btn-primary">
+                <Button size="lg" className="bg-black hover:bg-black/90 text-white">
                   Launch a Bug Bounty <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button size="lg" variant="outline" className="btn-outline">
