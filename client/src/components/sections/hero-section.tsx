@@ -7,10 +7,10 @@ const HeroSection: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-gray-900 text-white">
       {/* Lottie Animation Background */}
-      <BackgroundAnimation opacity={0.15} />
+      <BackgroundAnimation opacity={0.7} />
       
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 z-1 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 opacity-70"></div>
+      {/* Gradient Overlay - reduced opacity to see animation better */}
+      <div className="absolute inset-0 z-1 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 opacity-40"></div>
 
       <div className="relative z-10 h-[600px] flex flex-col items-center justify-center">
         <div className="w-full max-w-5xl mx-auto px-4 text-center relative">
