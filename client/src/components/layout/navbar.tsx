@@ -10,7 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, Shield } from 'lucide-react';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,69 +21,104 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 bg-gray-900 shadow-md z-50">
+    <header className="sticky top-0 bg-white border-b border-gray-200 shadow-sm z-50">
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <AudittLogo className="h-8 w-8" />
-            <span className="text-xl font-bold text-white">Auditt</span>
+            <span className="text-xl font-bold text-gray-900">Auditt</span>
           </Link>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-6">
-            <Link href="/auditors" className={cn(
-              "nav-item text-gray-300 hover:text-white font-medium", 
-              isActiveLink("/auditors") && "text-white"
+          <nav className="hidden md:flex space-x-8">
+            <DropdownMenu>
+              <DropdownMenuTrigger className={cn(
+                "nav-item flex items-center space-x-1 text-gray-600 hover:text-gray-900 font-medium", 
+                (isActiveLink("/auditors") || isActiveLink("/verified-auditors")) && "text-gray-900"
+              )}>
+                <span>For Auditors</span>
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center" className="w-48">
+                <DropdownMenuItem asChild>
+                  <Link href="/auditors" className="w-full cursor-pointer">
+                    Security Auditors
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/verified-auditors" className="w-full cursor-pointer">
+                    Verified Network
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger className={cn(
+                "nav-item flex items-center space-x-1 text-gray-600 hover:text-gray-900 font-medium", 
+                (isActiveLink("/business") || isActiveLink("/compliance")) && "text-gray-900"
+              )}>
+                <span>For Business</span>
+                <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="center" className="w-48">
+                <DropdownMenuItem asChild>
+                  <Link href="/business" className="w-full cursor-pointer">
+                    Overview
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/compliance" className="w-full cursor-pointer">
+                    Regulatory & Compliance
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/post-project" className="w-full cursor-pointer">
+                    Post a Project
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
+            <Link href="/bug-bounty" className={cn(
+              "nav-item text-gray-600 hover:text-gray-900 font-medium", 
+              isActiveLink("/bug-bounty") && "text-gray-900"
             )}>
-              For Auditors
+              Bug Bounty
             </Link>
-            <Link href="/business" className={cn(
-              "nav-item text-gray-300 hover:text-white font-medium", 
-              isActiveLink("/business") && "text-white"
-            )}>
-              For Business
-            </Link>
-            <Link href="/contributors" className={cn(
-              "nav-item text-gray-300 hover:text-white font-medium", 
-              isActiveLink("/contributors") && "text-white"
-            )}>
-              For Contributors
-            </Link>
-            <Link href="/compliance" className={cn(
-              "nav-item text-gray-300 hover:text-white font-medium", 
-              isActiveLink("/compliance") && "text-white"
-            )}>
-              Regulatory & Compliance
-            </Link>
+            
             <Link href="/audit-marketplace" className={cn(
-              "nav-item text-gray-300 hover:text-white font-medium", 
-              isActiveLink("/audit-marketplace") && "text-white"
+              "nav-item text-gray-600 hover:text-gray-900 font-medium", 
+              isActiveLink("/audit-marketplace") && "text-gray-900"
             )}>
-              Audit Marketplace
+              Marketplace
             </Link>
+            
             <Link href="/community" className={cn(
-              "nav-item text-gray-300 hover:text-white font-medium", 
-              isActiveLink("/community") && "text-white"
+              "nav-item text-gray-600 hover:text-gray-900 font-medium", 
+              isActiveLink("/community") && "text-gray-900"
             )}>
               Community
             </Link>
+            
             <Link href="/agentic-audit" className={cn(
-              "bg-gradient-to-r from-[#ff6b35] to-[#ff9d6d] text-white px-3 py-1 rounded-full font-medium transition-all hover:shadow-md", 
-              isActiveLink("/agentic-audit") && "shadow-md"
+              "flex items-center space-x-1 text-gray-900 px-3 py-1 rounded-full font-medium border border-gray-200 transition-all bg-gray-50 hover:bg-gray-100", 
+              isActiveLink("/agentic-audit") && "bg-gray-100"
             )}>
-              Agentic Audit
+              <Shield className="h-4 w-4 mr-1" />
+              <span>AI Audit</span>
             </Link>
           </nav>
           
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center space-x-4">
             <Link href="/sign-in">
-              <Button variant="link" className="text-gray-300 font-medium hover:text-white">
+              <Button variant="link" className="text-gray-700 font-medium hover:text-gray-900">
                 Sign In
               </Button>
             </Link>
-            <Link href="/get-started">
+            <Link href="/post-project">
               <Button className="bg-[#ff6b35] text-white hover:bg-[#ff6b35]/90">
                 Get Started
               </Button>
@@ -93,7 +128,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button 
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden rounded-md p-2 text-gray-300 hover:bg-gray-800 hover:text-white focus:outline-none"
+            className="md:hidden rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none"
           >
             <svg className="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
