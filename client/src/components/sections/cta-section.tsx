@@ -54,14 +54,14 @@ const CTASection: React.FC = () => {
   return (
     <section className="py-20 md:py-28 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#032757] to-blue-600 z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#032757] to-[#032757] z-0"></div>
       <div className="absolute inset-0 bg-grid-pattern opacity-10 z-0"></div>
-      
+
       {/* Decorative elements */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-blue-400/20 to-transparent"></div>
       <div className="absolute -top-24 -left-24 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
       <div className="absolute -bottom-32 -right-32 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"></div>
-      
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className="w-full lg:w-1/2 mb-10 lg:mb-0">
@@ -90,9 +90,7 @@ const CTASection: React.FC = () => {
           </div>
 
           <div className="w-full lg:w-5/12 bg-white/10 backdrop-blur-sm rounded-xl p-8 md:p-10 border border-white/10 shadow-xl">
-            <h3 className="text-xl font-bold mb-4 text-white">
-              Stay Updated
-            </h3>
+            <h3 className="text-xl font-bold mb-4 text-white">Stay Updated</h3>
             <p className="mb-6 text-white/90">
               Get the latest updates on Web3 security, audit innovations, and
               platform features.
@@ -102,7 +100,7 @@ const CTASection: React.FC = () => {
                 <Input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 focus:bg-white/30 focus:ring-2 focus:ring-white/50 focus:outline-none text-white placeholder-white/60"
+                  className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 focus:bg-white/30 focus:ring-2 focus:ring-white/50 focus:outline-none text-white placeholder-Black"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
@@ -111,7 +109,7 @@ const CTASection: React.FC = () => {
                 <Input
                   type="email"
                   placeholder="Your Email"
-                  className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 focus:bg-white/30 focus:ring-2 focus:ring-white/50 focus:outline-none text-white placeholder-white/60"
+                  className="w-full px-4 py-3 rounded-lg bg-white/20 border border-white/30 focus:bg-white/30 focus:ring-2 focus:ring-white/50 focus:outline-none text-white placeholder-black/10"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
