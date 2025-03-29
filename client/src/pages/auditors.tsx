@@ -26,12 +26,14 @@ const Auditors: React.FC = () => {
                 blockchain projects.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button
-                  className="bg-white text-[#032757] hover:bg-white/90"
-                  size="lg"
-                >
-                  Apply to Join
-                </Button>
+                <Link href="/auditor-signup">
+                  <Button
+                    className="bg-white text-[#032757] hover:bg-white/90"
+                    size="lg"
+                  >
+                    Apply to Join
+                  </Button>
+                </Link>
                 <Button
                   variant="outline"
                   className="border-white text-[#032757]  hover:bg-white/10"
