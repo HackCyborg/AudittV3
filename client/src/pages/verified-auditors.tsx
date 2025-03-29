@@ -28,7 +28,8 @@ const VerifiedAuditors: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center">
             <div className="md:w-1/2 mb-10 md:mb-0">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-white text-sm font-medium mb-6">
-                <BadgeCheck className="h-4 w-4 mr-2" /> Trusted Security Expertise
+                <BadgeCheck className="h-4 w-4 mr-2" /> Trusted Security
+                Expertise
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Verified Auditor Network
@@ -46,9 +47,8 @@ const VerifiedAuditors: React.FC = () => {
                   Find an Auditor <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button
+                  className="bg-white text-[#032757] hover:bg-white/90"
                   size="lg"
-                  variant="outline"
-                  className="border-white text-white hover:bg-white/10"
                 >
                   Join as an Auditor
                 </Button>
@@ -56,10 +56,13 @@ const VerifiedAuditors: React.FC = () => {
             </div>
             <div className="md:w-1/2 flex justify-center">
               <div className="relative w-full max-w-lg">
-                <Lottie 
-                  animationData={laboratoryAnimation} 
+                <Lottie
+                  animationData={laboratoryAnimation}
                   className="w-full"
-                  style={{ filter: "drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.2))" }}
+                  style={{
+                    filter:
+                      "drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.2))",
+                  }}
                 />
               </div>
             </div>
@@ -164,7 +167,7 @@ const VerifiedAuditors: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
-              <span className="inline-block py-1 px-3 rounded-full bg-secondary-100 text-secondary-700 text-sm font-medium mb-4">
+              <span className="inline-block py-1 px-3 rounded-full bg-secondary-100 text-center text-secondary-700 text-sm font-medium mb-4">
                 For Projects
               </span>
               <h2 className="text-3xl font-bold mb-5 text-dark-700">
@@ -248,7 +251,7 @@ const VerifiedAuditors: React.FC = () => {
       <section className="py-12 md:py-14 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-10">
-            <h2 className="text-3xl font-bold mb-4 text-dark-700">
+            <h2 className="text-3xl font-bold mb-4 text-[#032757]">
               Meet Some of Our Verified Auditors
             </h2>
             <p className="text-lg text-gray-600">
@@ -304,7 +307,7 @@ const VerifiedAuditors: React.FC = () => {
                   </div>
                   <Button
                     variant="outline"
-                    className="w-full border-secondary-500 text-secondary-500 hover:bg-secondary-50"
+                    className="w-full border-secondary-500 text-[#032757] hover:bg-secondary-50"
                   >
                     View Profile
                   </Button>
@@ -314,7 +317,10 @@ const VerifiedAuditors: React.FC = () => {
           </div>
 
           <div className="text-center mt-10">
-            <Button className="bg-secondary-500 hover:bg-secondary-600 text-white">
+            <Button
+              variant="outline"
+              className="bg-secondary-500 hover:bg-secondary-600 text-[#032757]"
+            >
               View All Verified Auditors
             </Button>
           </div>
@@ -327,20 +333,21 @@ const VerifiedAuditors: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-5">
             Ready to Secure Your Web3 Project?
           </h2>
-          <p className="text-xl text-white/90 mb-6">
+          <p className="text-xl text-black/90 mb-6">
             Connect with our verified auditors today and ensure your project
             meets the highest security standards.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              className="bg-white text-secondary-600 hover:bg-white/90"
+              variant="outline"
+              className="bg-white text-[#032757] hover:bg-blue/90"
               size="lg"
             >
               Find an Auditor <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
             <Button
               variant="outline"
-              className="border-white text-white hover:bg-white/10"
+              className="border-blue text-[#032757] hover:bg-white/10"
               size="lg"
             >
               Apply as an Auditor
