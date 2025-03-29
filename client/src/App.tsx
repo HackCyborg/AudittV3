@@ -14,7 +14,7 @@ import Contributors from "@/pages/contributors";
 import Compliance from "@/pages/compliance";
 import Community from "@/pages/community";
 import ProgressTrackers from "@/pages/progress-trackers";
-import PostProject from "@/pages/post-project";
+import PostProjectNew from "@/pages/post-project-new";
 import AgenticAudit from "@/pages/agentic-audit";
 import NotFound from "@/pages/not-found";
 
@@ -36,7 +36,7 @@ function App() {
           <Route path="/compliance" component={Compliance} />
           <Route path="/community" component={Community} />
           <Route path="/progress-trackers" component={ProgressTrackers} />
-          <Route path="/post-project" component={PostProject} />
+          <Route path="/post-project" component={PostProjectNew} />
           <Route path="/agentic-audit" component={AgenticAudit} />
           <Route component={NotFound} />
         </Switch>
