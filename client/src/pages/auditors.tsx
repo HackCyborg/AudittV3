@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "wouter";
 import { Shield, CheckCircle, Award, Network, Briefcase } from "lucide-react";
 
 const Auditors: React.FC = () => {
@@ -26,7 +27,7 @@ const Auditors: React.FC = () => {
                 blockchain projects.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/auditor-signup">
+                <Link href="/auditors/signup">
                   <Button
                     className="bg-white text-[#032757] hover:bg-white/90"
                     size="lg"
@@ -227,12 +228,14 @@ const Auditors: React.FC = () => {
               Take the first step toward becoming a recognized Web3 security
               expert.
             </p>
-            <Button
-              className="bg-white text-[#032757] hover:bg-white/90"
-              size="lg"
-            >
-              Apply Now
-            </Button>
+            <Link href="/auditors/signup">
+              <Button
+                className="bg-white text-[#032757] hover:bg-white/90"
+                size="lg"
+              >
+                Apply Now
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

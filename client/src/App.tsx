@@ -7,6 +7,7 @@ import Auditors from "@/pages/auditors";
 import Business from "@/pages/business";
 import BugBounty from "@/pages/bug-bounty";
 import BugBountySignup from "@/pages/bug-bounty/signup";
+import AuditorSignup from "@/pages/auditors/signup";
 import AuditMarketplace from "@/pages/audit-marketplace";
 import VerifiedAuditors from "@/pages/verified-auditors";
 import Contributors from "@/pages/contributors";
@@ -28,6 +29,7 @@ function App() {
           <Route path="/business" component={Business} />
           <Route path="/bug-bounty" component={BugBounty} />
           <Route path="/bug-bounty/signup" component={BugBountySignup} />
+          <Route path="/auditors/signup" component={AuditorSignup} />
           <Route path="/audit-marketplace" component={AuditMarketplace} />
           <Route path="/verified-auditors" component={VerifiedAuditors} />
           <Route path="/contributors" component={Contributors} />

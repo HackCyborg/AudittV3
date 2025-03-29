@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import SectionHeading from "@/components/shared/section-heading";
 import Lottie from "lottie-react";
 import laboratoryAnimation from "@/assets/animations/laboratory-animation.json";
+import { Link } from "wouter";
 import {
   BadgeCheck,
   Shield,
@@ -46,12 +47,14 @@ const VerifiedAuditors: React.FC = () => {
                 >
                   Find an Auditor <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button
-                  className="bg-white text-[#032757] hover:bg-white/90"
-                  size="lg"
-                >
-                  Join as an Auditor
-                </Button>
+                <Link href="/auditors/signup">
+                  <Button
+                    className="bg-white text-[#032757] hover:bg-white/90"
+                    size="lg"
+                  >
+                    Join as an Auditor
+                  </Button>
+                </Link>
               </div>
             </div>
             <div className="md:w-1/2 flex justify-center">
@@ -345,13 +348,15 @@ const VerifiedAuditors: React.FC = () => {
             >
               Find an Auditor <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <Button
-              variant="outline"
-              className="border-blue text-[#032757] hover:bg-white/10"
-              size="lg"
-            >
-              Apply as an Auditor
-            </Button>
+            <Link href="/auditors/signup">
+              <Button
+                variant="outline"
+                className="border-blue text-[#032757] hover:bg-white/10"
+                size="lg"
+              >
+                Apply as an Auditor
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
