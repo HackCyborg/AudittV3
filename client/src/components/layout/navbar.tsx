@@ -23,124 +23,128 @@ const Navbar = () => {
   return (
     <header className="sticky top-0 bg-white border-b border-gray-200 shadow-sm z-50">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <AudittLogo className="h-8 w-8" />
-            <span className="text-xl font-bold text-gray-900">Auditt</span>
-          </Link>
+        <div className="flex items-center h-16 md:h-20">
+          {/* Logo (far left) */}
+          <div className="flex-shrink-0 mr-8">
+            <Link href="/" className="flex items-center space-x-2">
+              <AudittLogo className="h-8 w-8" />
+              <span className="text-xl font-bold text-gray-900">Auditt</span>
+            </Link>
+          </div>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex lg:flex items-center flex-nowrap space-x-4 lg:space-x-6">
-            <DropdownMenu>
-              <DropdownMenuTrigger
+          {/* Desktop Navigation (center, with good spacing) */}
+          <nav className="hidden md:flex flex-1 items-center justify-center">
+            <div className="flex items-center space-x-8">
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  className={cn(
+                    "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                    (isActiveLink("/auditors") ||
+                      isActiveLink("/verified-auditors")) &&
+                      "text-gray-900",
+                  )}
+                >
+                  <span>For Auditors</span>
+                  <ChevronDown className="h-4 w-4 ml-1" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="center" className="w-48">
+                  <DropdownMenuItem asChild>
+                    <Link href="/auditors" className="w-full cursor-pointer">
+                      Security Auditors
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link
+                      href="/verified-auditors"
+                      className="w-full cursor-pointer"
+                    >
+                      Verified Network
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  className={cn(
+                    "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                    (isActiveLink("/business") || isActiveLink("/compliance")) &&
+                      "text-gray-900",
+                  )}
+                >
+                  <span>For Business</span>
+                  <ChevronDown className="h-4 w-4 ml-1" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="center" className="w-48">
+                  <DropdownMenuItem asChild>
+                    <Link href="/business" className="w-full cursor-pointer">
+                      Overview
+                    </Link>
+                  </DropdownMenuItem>
+
+                  <DropdownMenuItem asChild>
+                    <Link href="/post-project" className="w-full cursor-pointer">
+                      Post a Project
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <Link
+                href="/bug-bounty"
                 className={cn(
-                  "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                  (isActiveLink("/auditors") ||
-                    isActiveLink("/verified-auditors")) &&
-                    "text-gray-900",
+                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                  isActiveLink("/bug-bounty") && "text-gray-900",
                 )}
               >
-                <span>For Auditors</span>
-                <ChevronDown className="h-4 w-4 ml-1" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="center" className="w-48">
-                <DropdownMenuItem asChild>
-                  <Link href="/auditors" className="w-full cursor-pointer">
-                    Security Auditors
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link
-                    href="/verified-auditors"
-                    className="w-full cursor-pointer"
-                  >
-                    Verified Network
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                Bug Bounty
+              </Link>
 
-            <DropdownMenu>
-              <DropdownMenuTrigger
+              <Link
+                href="/compliance"
                 className={cn(
-                  "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                  (isActiveLink("/business") || isActiveLink("/compliance")) &&
-                    "text-gray-900",
+                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                  isActiveLink("/compliance") && "text-gray-900",
                 )}
               >
-                <span>For Business</span>
-                <ChevronDown className="h-4 w-4 ml-1" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="center" className="w-48">
-                <DropdownMenuItem asChild>
-                  <Link href="/business" className="w-full cursor-pointer">
-                    Overview
-                  </Link>
-                </DropdownMenuItem>
+                Regulatory & Compliance
+              </Link>
 
-                <DropdownMenuItem asChild>
-                  <Link href="/post-project" className="w-full cursor-pointer">
-                    Post a Project
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+              <Link
+                href="/community"
+                className={cn(
+                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                  isActiveLink("/community") && "text-gray-900",
+                )}
+              >
+                Community
+              </Link>
 
-            <Link
-              href="/bug-bounty"
-              className={cn(
-                "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                isActiveLink("/bug-bounty") && "text-gray-900",
-              )}
-            >
-              Bug Bounty
-            </Link>
+              <Link
+                href="/contributors"
+                className={cn(
+                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                  isActiveLink("/contributors") && "text-gray-900",
+                )}
+              >
+                For Contributors
+              </Link>
 
-            <Link
-              href="/compliance"
-              className={cn(
-                "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                isActiveLink("/compliance") && "text-gray-900",
-              )}
-            >
-              Regulatory & Compliance
-            </Link>
-
-            <Link
-              href="/community"
-              className={cn(
-                "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                isActiveLink("/community") && "text-gray-900",
-              )}
-            >
-              Community
-            </Link>
-
-            <Link
-              href="/contributors"
-              className={cn(
-                "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                isActiveLink("/contributors") && "text-gray-900",
-              )}
-            >
-              For Contributors
-            </Link>
-
-            <Link
-              href="/agentic-audit"
-              className={cn(
-                "flex items-center whitespace-nowrap text-yellow-900 px-3 py-1 rounded-full font-medium border border-black-200 transition-all bg-gray-50 hover:bg-blue-100 text-sm",
-                isActiveLink("/agentic-audit") && "bg-gray-100",
-              )}
-            >
-              <Shield className="h-4 w-4 mr-1" />
-              <span>Agentic Audit</span>
-            </Link>
+              <Link
+                href="/agentic-audit"
+                className={cn(
+                  "flex items-center whitespace-nowrap text-yellow-900 px-3 py-1 rounded-full font-medium border border-black-200 transition-all bg-gray-50 hover:bg-blue-100 text-sm",
+                  isActiveLink("/agentic-audit") && "bg-gray-100",
+                )}
+              >
+                <Shield className="h-4 w-4 mr-1" />
+                <span>Agentic Audit</span>
+              </Link>
+            </div>
           </nav>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center space-x-4">
+          {/* CTA Buttons (far right) */}
+          <div className="hidden md:flex items-center space-x-4 ml-auto">
             <Link href="/sign-in">
               <Button
                 variant="link"
@@ -159,7 +163,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none"
+            className="md:hidden ml-auto rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none"
           >
             <svg
               className="h-6 w-6"
