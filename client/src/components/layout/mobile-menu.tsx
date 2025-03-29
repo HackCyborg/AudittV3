@@ -1,30 +1,21 @@
 import React from 'react';
-import { Link } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import { cn } from '@/lib/utils';
 import { Shield, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 interface MobileMenuProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
 }
 
-const MobileMenuItem = ({ href, children, special = false, onClick }: { href: string; children: React.ReactNode; special?: boolean; onClick: () => void }) => (
-  <Link 
-    href={href} 
-    onClick={onClick} 
-    className={cn(
-      "flex items-center justify-between py-3 px-4 border-b border-gray-100",
-      special 
-        ? "bg-gray-50 text-gray-900 font-medium" 
-        : "text-gray-700 hover:bg-gray-50 hover:text-gray-900"
-    )}
-  >
-    <span>{children}</span>
-    <ChevronRight className="h-4 w-4 text-gray-400" />
-  </Link>
-);
-
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen }) => {
+  const [location] = useLocation();
+  
+  const isActiveLink = (path: string) => {
+    return location === path;
+  };
+
   const handleLinkClick = () => {
     setIsOpen(false);
   };
@@ -36,44 +27,117 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen }) => {
         isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0"
       )}
     >
-      <div className="px-0 divide-y divide-gray-100 bg-white">
-        <div className="py-1">
-          <div className="px-4 py-2 text-sm font-medium text-gray-500 uppercase">For Users</div>
-          <MobileMenuItem href="/auditors" onClick={handleLinkClick}>Security Auditors</MobileMenuItem>
-          <MobileMenuItem href="/verified-auditors" onClick={handleLinkClick}>Verified Network</MobileMenuItem>
-          <MobileMenuItem href="/business" onClick={handleLinkClick}>For Business</MobileMenuItem>
-          <MobileMenuItem href="/contributors" onClick={handleLinkClick}>For Contributors</MobileMenuItem>
-        </div>
-        
-        <div className="py-1">
-          <div className="px-4 py-2 text-sm font-medium text-gray-500 uppercase">Platform</div>
-          <MobileMenuItem href="/bug-bounty" onClick={handleLinkClick}>Bug Bounty</MobileMenuItem>
-          <MobileMenuItem href="/audit-marketplace" onClick={handleLinkClick}>Audit Marketplace</MobileMenuItem>
-          <MobileMenuItem href="/compliance" onClick={handleLinkClick}>Regulatory & Compliance</MobileMenuItem>
-          <MobileMenuItem href="/community" onClick={handleLinkClick}>Community</MobileMenuItem>
-        </div>
-        
-        <MobileMenuItem href="/agentic-audit" onClick={handleLinkClick} special={true}>
-          <div className="flex items-center">
-            <Shield className="h-4 w-4 mr-2" />
-            <span>AI-Powered Audit</span>
+      <div className="px-4 py-4 bg-white">
+        {/* Navigation links in a single row, matching desktop */}
+        <div className="flex flex-col space-y-4">
+          {/* For Auditors Section */}
+          <div className="space-y-2">
+            <div className="font-medium text-gray-900">For Auditors</div>
+            <div className="space-y-2 pl-2">
+              <Link 
+                href="/auditors" 
+                onClick={handleLinkClick}
+                className={cn(
+                  "block py-1 text-gray-700 hover:text-gray-900",
+                  isActiveLink("/auditors") && "text-gray-900 font-medium"
+                )}
+              >
+                Security Auditors
+              </Link>
+              <Link 
+                href="/verified-auditors" 
+                onClick={handleLinkClick}
+                className={cn(
+                  "block py-1 text-gray-700 hover:text-gray-900",
+                  isActiveLink("/verified-auditors") && "text-gray-900 font-medium"
+                )}
+              >
+                Verified Network
+              </Link>
+            </div>
           </div>
-        </MobileMenuItem>
+          
+          {/* Platform Section */}
+          <div className="space-y-2">
+            <div className="font-medium text-gray-900">Platform</div>
+            <div className="space-y-2 pl-2">
+              <Link 
+                href="/bug-bounty" 
+                onClick={handleLinkClick}
+                className={cn(
+                  "block py-1 text-gray-700 hover:text-gray-900",
+                  isActiveLink("/bug-bounty") && "text-gray-900 font-medium"
+                )}
+              >
+                Bug Bounty
+              </Link>
+              <Link 
+                href="/compliance" 
+                onClick={handleLinkClick}
+                className={cn(
+                  "block py-1 text-gray-700 hover:text-gray-900",
+                  isActiveLink("/compliance") && "text-gray-900 font-medium"
+                )}
+              >
+                Regulatory & Compliance
+              </Link>
+              <Link 
+                href="/contributors" 
+                onClick={handleLinkClick}
+                className={cn(
+                  "block py-1 text-gray-700 hover:text-gray-900",
+                  isActiveLink("/contributors") && "text-gray-900 font-medium"
+                )}
+              >
+                For Contributors
+              </Link>
+              <Link 
+                href="/community" 
+                onClick={handleLinkClick}
+                className={cn(
+                  "block py-1 text-gray-700 hover:text-gray-900",
+                  isActiveLink("/community") && "text-gray-900 font-medium"
+                )}
+              >
+                Community
+              </Link>
+            </div>
+          </div>
+          
+          {/* Agentic Audit */}
+          <Link 
+            href="/agentic-audit" 
+            onClick={handleLinkClick}
+            className={cn(
+              "flex items-center whitespace-nowrap text-yellow-900 px-3 py-2 rounded-full font-medium border border-black-200 transition-all bg-gray-50 hover:bg-blue-100 text-sm w-fit",
+              isActiveLink("/agentic-audit") && "bg-gray-100"
+            )}
+          >
+            <Shield className="h-4 w-4 mr-1" />
+            <span>Agentic Audit</span>
+          </Link>
+        </div>
         
-        <div className="p-4 flex flex-col space-y-3">
+        {/* CTA Buttons */}
+        <div className="mt-6 flex flex-col space-y-3">
           <Link 
             href="/sign-in" 
             onClick={handleLinkClick}
-            className="w-full text-center px-4 py-2 rounded-md text-gray-700 font-medium border border-gray-300 hover:bg-gray-50"
           >
-            Sign In
+            <Button 
+              variant="outline"
+              className="w-full text-gray-700 font-medium hover:text-gray-900"
+            >
+              Sign In
+            </Button>
           </Link>
           <Link 
             href="/post-project" 
             onClick={handleLinkClick}
-            className="w-full text-center px-4 py-2 rounded-md bg-[#ff6b35] text-white font-medium hover:bg-[#ff6b35]/90"
           >
-            Get Started
+            <Button className="w-full bg-[#032757] text-white hover:bg-black">
+              Get Started
+            </Button>
           </Link>
         </div>
       </div>

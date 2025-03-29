@@ -1,26 +1,39 @@
-import React, { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import SectionHeading from '@/components/shared/section-heading';
-import { Users, MessageSquare, Calendar, BookOpen, GraduationCap, Link as LinkIcon, ExternalLink, Shield, ArrowRight } from 'lucide-react';
-import { Link } from 'wouter';
-import { Card, CardContent, CardFooter } from '@/components/ui/card';
-import { useToast } from '@/hooks/use-toast';
-import { apiRequest } from '@/lib/queryClient';
-import { useMutation } from '@tanstack/react-query';
-import Lottie from "lottie-react";
-import communityAnimation from "@/assets/animations/bug-animation.json";
+import React, { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import SectionHeading from "@/components/shared/section-heading";
+import {
+  Users,
+  MessageSquare,
+  Calendar,
+  BookOpen,
+  GraduationCap,
+  Link as LinkIcon,
+  ExternalLink,
+  Shield,
+  ArrowRight,
+} from "lucide-react";
+import { Link } from "wouter";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { useToast } from "@/hooks/use-toast";
+import { apiRequest } from "@/lib/queryClient";
+import { useMutation } from "@tanstack/react-query";
+// Animation removed as requested
 
 const Community: React.FC = () => {
   const { toast } = useToast();
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   const contactMutation = useMutation({
-    mutationFn: async (data: { name: string; email: string; message: string }) => {
-      const response = await apiRequest('POST', '/api/contact', data);
+    mutationFn: async (data: {
+      name: string;
+      email: string;
+      message: string;
+    }) => {
+      const response = await apiRequest("POST", "/api/contact", data);
       return response.json();
     },
     onSuccess: (data) => {
@@ -29,17 +42,20 @@ const Community: React.FC = () => {
         description: data.message || "Your message has been sent successfully.",
         variant: "default",
       });
-      setName('');
-      setEmail('');
-      setMessage('');
+      setName("");
+      setEmail("");
+      setMessage("");
     },
     onError: (error) => {
       toast({
         title: "Error",
-        description: error instanceof Error ? error.message : "Failed to send your message. Please try again.",
+        description:
+          error instanceof Error
+            ? error.message
+            : "Failed to send your message. Please try again.",
         variant: "destructive",
       });
-    }
+    },
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -67,34 +83,32 @@ const Community: React.FC = () => {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-10 md:mb-0">
+            <div className="w-full max-w-3xl mx-auto text-center">
               <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/20 text-white text-sm font-medium mb-6">
                 <Shield className="h-4 w-4 mr-2" /> Community-Powered Security
               </div>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight">
                 Join Our Web3 Security Community
               </h1>
-              <p className="text-white/80 text-lg mb-8 md:pr-8 leading-relaxed">
-                Connect with security experts, developers, and Web3 enthusiasts. Share knowledge, collaborate on projects, and stay updated on the latest security practices.
+              <p className="text-white/80 text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
+                Connect with security experts, developers, and Web3 enthusiasts.
+                Share knowledge, collaborate on projects, and stay updated on
+                the latest security practices.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-white hover:bg-white/90 text-[#00264d]">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button
+                  size="lg"
+                  className="bg-white hover:bg-white/90 text-[#00264d]"
+                >
                   Join Community <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="border-white text-white hover:bg-white/10"
+                >
                   View Resources
                 </Button>
-              </div>
-            </div>
-            <div className="md:w-1/2 flex justify-center">
-              <div className="relative w-full max-w-lg">
-                <Lottie
-                  animationData={communityAnimation}
-                  className="w-full"
-                  style={{
-                    filter: "drop-shadow(0px 0px 20px rgba(255, 255, 255, 0.2))",
-                  }}
-                />
               </div>
             </div>
           </div>
@@ -116,51 +130,63 @@ const Community: React.FC = () => {
               {
                 icon: <MessageSquare className="h-12 w-12 text-primary-600" />,
                 title: "Discussion Forums",
-                description: "Engage in discussions about Web3 security topics, share insights, and get help with security challenges.",
-                link: "#forums"
+                description:
+                  "Engage in discussions about Web3 security topics, share insights, and get help with security challenges.",
+                link: "#forums",
               },
               {
                 icon: <Calendar className="h-12 w-12 text-primary-600" />,
                 title: "Events & Webinars",
-                description: "Participate in regular online events, security workshops, and webinars led by industry experts.",
-                link: "#events"
+                description:
+                  "Participate in regular online events, security workshops, and webinars led by industry experts.",
+                link: "#events",
               },
               {
                 icon: <Users className="h-12 w-12 text-primary-600" />,
                 title: "Community Projects",
-                description: "Collaborate on open-source security tools, research initiatives, and community-driven resources.",
-                link: "#projects"
+                description:
+                  "Collaborate on open-source security tools, research initiatives, and community-driven resources.",
+                link: "#projects",
               },
               {
                 icon: <BookOpen className="h-12 w-12 text-primary-600" />,
                 title: "Knowledge Base",
-                description: "Access our extensive collection of security guides, best practices, and educational resources.",
-                link: "#knowledge"
+                description:
+                  "Access our extensive collection of security guides, best practices, and educational resources.",
+                link: "#knowledge",
               },
               {
                 icon: <GraduationCap className="h-12 w-12 text-primary-600" />,
                 title: "Learning Paths",
-                description: "Follow structured learning paths to develop your Web3 security skills from beginner to expert.",
-                link: "#learning"
+                description:
+                  "Follow structured learning paths to develop your Web3 security skills from beginner to expert.",
+                link: "#learning",
               },
               {
                 icon: <LinkIcon className="h-12 w-12 text-primary-600" />,
                 title: "Networking",
-                description: "Connect with peers, mentors, and potential employers in the Web3 security space.",
-                link: "#networking"
-              }
+                description:
+                  "Connect with peers, mentors, and potential employers in the Web3 security space.",
+                link: "#networking",
+              },
             ].map((feature, index) => (
-              <Card key={index} className="border border-gray-100 hover:shadow-md transition-all">
+              <Card
+                key={index}
+                className="border border-gray-100 hover:shadow-md transition-all"
+              >
                 <CardContent className="pt-6">
-                  <div className="mb-4">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold mb-2 text-dark-600">{feature.title}</h3>
+                  <div className="mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold mb-2 text-dark-600">
+                    {feature.title}
+                  </h3>
                   <p className="text-gray-600 mb-4">{feature.description}</p>
                 </CardContent>
                 <CardFooter className="pt-0">
                   <Link href={feature.link}>
-                    <Button variant="link" className="p-0 text-primary-600 hover:text-primary-700">
+                    <Button
+                      variant="link"
+                      className="p-0 text-primary-600 hover:text-primary-700"
+                    >
                       Learn more
                       <ExternalLink className="ml-1 h-4 w-4" />
                     </Button>
@@ -177,8 +203,13 @@ const Community: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="mb-10 text-center">
-              <h2 className="text-3xl font-bold mb-4 text-dark-700">Upcoming Community Events</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">Join these upcoming events to learn from experts and connect with peers</p>
+              <h2 className="text-3xl font-bold mb-4 text-dark-700">
+                Upcoming Community Events
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Join these upcoming events to learn from experts and connect
+                with peers
+              </p>
             </div>
 
             <div className="space-y-6">
@@ -188,30 +219,36 @@ const Community: React.FC = () => {
                   date: "June 15, 2023",
                   time: "11:00 AM - 1:00 PM UTC",
                   type: "Webinar",
-                  speaker: "Alex Johnson, Senior Security Auditor"
+                  speaker: "Alex Johnson, Senior Security Auditor",
                 },
                 {
                   title: "Bug Bounty Hunting Workshop",
                   date: "June 22, 2023",
                   time: "3:00 PM - 5:00 PM UTC",
                   type: "Interactive Workshop",
-                  speaker: "Sarah Martinez, Lead Security Researcher"
+                  speaker: "Sarah Martinez, Lead Security Researcher",
                 },
                 {
                   title: "Web3 Security: Trends and Challenges",
                   date: "July 5, 2023",
                   time: "2:00 PM - 3:30 PM UTC",
                   type: "Panel Discussion",
-                  speaker: "Various Industry Experts"
-                }
+                  speaker: "Various Industry Experts",
+                },
               ].map((event, index) => (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all">
+                <div
+                  key={index}
+                  className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-all"
+                >
                   <div className="flex flex-col md:flex-row gap-6">
                     <div className="md:w-2/3">
-                      <h3 className="text-xl font-semibold mb-2 text-dark-600">{event.title}</h3>
+                      <h3 className="text-xl font-semibold mb-2 text-dark-600">
+                        {event.title}
+                      </h3>
                       <p className="text-gray-500 mb-3">{event.speaker}</p>
                       <p className="text-gray-600 mb-4">
-                        {event.type}: An in-depth session covering essential concepts, practical techniques, and interactive Q&A.
+                        {event.type}: An in-depth session covering essential
+                        concepts, practical techniques, and interactive Q&A.
                       </p>
                       <Button className="bg-[#032757] hover:bg-black text-white">
                         Register Now
@@ -219,7 +256,9 @@ const Community: React.FC = () => {
                     </div>
                     <div className="md:w-1/3 bg-light-500 rounded-lg p-4 flex flex-col justify-center">
                       <div className="text-center">
-                        <p className="text-lg font-semibold text-dark-600">{event.date}</p>
+                        <p className="text-lg font-semibold text-dark-600">
+                          {event.date}
+                        </p>
                         <p className="text-primary-600">{event.time}</p>
                         <p className="mt-2 text-sm text-gray-500">
                           <Calendar className="inline h-4 w-4 mr-1" />
@@ -233,7 +272,10 @@ const Community: React.FC = () => {
             </div>
 
             <div className="mt-8 text-center">
-              <Button variant="outline" className="border-[#032757] text-[#032757] hover:bg-[#032757]/10">
+              <Button
+                variant="outline"
+                className="border-[#032757] text-[#032757] hover:bg-[#032757]/10"
+              >
                 View All Events
               </Button>
             </div>
@@ -246,8 +288,12 @@ const Community: React.FC = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="mb-10 text-center">
-              <h2 className="text-3xl font-bold mb-4 text-dark-700">Recent Community Discussions</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">Join the conversation in our active community forums</p>
+              <h2 className="text-3xl font-bold mb-4 text-dark-700">
+                Recent Community Discussions
+              </h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                Join the conversation in our active community forums
+              </p>
             </div>
 
             <div className="space-y-4">
@@ -257,31 +303,37 @@ const Community: React.FC = () => {
                   category: "Smart Contract Security",
                   replies: 24,
                   views: 342,
-                  lastActive: "2 hours ago"
+                  lastActive: "2 hours ago",
                 },
                 {
-                  title: "How to effectively disclose vulnerabilities in DeFi protocols?",
+                  title:
+                    "How to effectively disclose vulnerabilities in DeFi protocols?",
                   category: "Bug Bounty",
                   replies: 17,
                   views: 203,
-                  lastActive: "6 hours ago"
+                  lastActive: "6 hours ago",
                 },
                 {
-                  title: "Understanding re-entrancy vulnerabilities in the latest Solidity version",
+                  title:
+                    "Understanding re-entrancy vulnerabilities in the latest Solidity version",
                   category: "Technical Discussion",
                   replies: 31,
                   views: 456,
-                  lastActive: "1 day ago"
+                  lastActive: "1 day ago",
                 },
                 {
-                  title: "Security considerations for implementing upgradeable contracts",
+                  title:
+                    "Security considerations for implementing upgradeable contracts",
                   category: "Smart Contract Security",
                   replies: 19,
                   views: 287,
-                  lastActive: "2 days ago"
-                }
+                  lastActive: "2 days ago",
+                },
               ].map((thread, index) => (
-                <div key={index} className="border border-gray-200 rounded-lg hover:shadow-sm transition-all">
+                <div
+                  key={index}
+                  className="border border-gray-200 rounded-lg hover:shadow-sm transition-all"
+                >
                   <div className="p-4">
                     <div className="flex justify-between items-start">
                       <div>
@@ -304,7 +356,9 @@ const Community: React.FC = () => {
                         </div>
                         <span className="text-sm text-gray-600">Username</span>
                       </div>
-                      <span className="text-xs text-gray-500">Last active: {thread.lastActive}</span>
+                      <span className="text-xs text-gray-500">
+                        Last active: {thread.lastActive}
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -326,15 +380,23 @@ const Community: React.FC = () => {
           <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10">
             <div>
               <div className="mb-8 text-center md:text-left">
-                <h2 className="text-3xl font-bold mb-4 text-dark-700">Get in Touch</h2>
+                <h2 className="text-3xl font-bold mb-4 text-dark-700">
+                  Get in Touch
+                </h2>
                 <p className="text-lg text-gray-600">
-                  Have questions about our community? Reach out to us and we'll get back to you as soon as possible.
+                  Have questions about our community? Reach out to us and we'll
+                  get back to you as soon as possible.
                 </p>
               </div>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Your Name
+                  </label>
                   <Input
                     id="name"
                     type="text"
@@ -345,7 +407,12 @@ const Community: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Email Address
+                  </label>
                   <Input
                     id="email"
                     type="email"
@@ -356,7 +423,12 @@ const Community: React.FC = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Message
+                  </label>
                   <Textarea
                     id="message"
                     placeholder="How can we help you?"
@@ -375,64 +447,94 @@ const Community: React.FC = () => {
                 </Button>
               </form>
             </div>
-            
+
             <div className="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
-              <h3 className="text-2xl font-bold mb-6 text-dark-700 text-center">Community Guidelines</h3>
-              
+              <h3 className="text-2xl font-bold mb-6 text-dark-700 text-center">
+                Community Guidelines
+              </h3>
+
               <div className="space-y-5">
                 <div className="flex space-x-4">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
                     <span className="text-blue-600 font-bold">1</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Respect & Inclusivity</h4>
-                    <p className="text-gray-600 text-sm">Treat all community members with respect regardless of background or experience level.</p>
+                    <h4 className="font-semibold text-gray-800 mb-1">
+                      Respect & Inclusivity
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Treat all community members with respect regardless of
+                      background or experience level.
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex space-x-4">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
                     <span className="text-blue-600 font-bold">2</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Constructive Discussion</h4>
-                    <p className="text-gray-600 text-sm">Focus on constructive feedback and avoid attacking individuals or projects.</p>
+                    <h4 className="font-semibold text-gray-800 mb-1">
+                      Constructive Discussion
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Focus on constructive feedback and avoid attacking
+                      individuals or projects.
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex space-x-4">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
                     <span className="text-blue-600 font-bold">3</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Responsible Disclosure</h4>
-                    <p className="text-gray-600 text-sm">Follow responsible disclosure practices for any security vulnerabilities.</p>
+                    <h4 className="font-semibold text-gray-800 mb-1">
+                      Responsible Disclosure
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Follow responsible disclosure practices for any security
+                      vulnerabilities.
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex space-x-4">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
                     <span className="text-blue-600 font-bold">4</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">No Spam or Self-Promotion</h4>
-                    <p className="text-gray-600 text-sm">Avoid excessive self-promotion or spamming promotional content.</p>
+                    <h4 className="font-semibold text-gray-800 mb-1">
+                      No Spam or Self-Promotion
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Avoid excessive self-promotion or spamming promotional
+                      content.
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex space-x-4">
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
                     <span className="text-blue-600 font-bold">5</span>
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Protect Privacy</h4>
-                    <p className="text-gray-600 text-sm">Never share others' personal information without explicit permission.</p>
+                    <h4 className="font-semibold text-gray-800 mb-1">
+                      Protect Privacy
+                    </h4>
+                    <p className="text-gray-600 text-sm">
+                      Never share others' personal information without explicit
+                      permission.
+                    </p>
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-8 text-center">
-                <Button variant="outline" className="border-[#032757] text-[#032757] hover:bg-[#032757]/10">
+                <Button
+                  variant="outline"
+                  className="border-[#032757] text-[#032757] hover:bg-[#032757]/10"
+                >
                   View Full Guidelines
                 </Button>
               </div>
