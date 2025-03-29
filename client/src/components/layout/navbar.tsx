@@ -118,6 +118,16 @@ const Navbar = () => {
             </Link>
 
             <Link
+              href="/contributors"
+              className={cn(
+                "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                isActiveLink("/contributors") && "text-gray-900",
+              )}
+            >
+              For Contributors
+            </Link>
+
+            <Link
               href="/agentic-audit"
               className={cn(
                 "flex items-center whitespace-nowrap text-yellow-900 px-3 py-1 rounded-full font-medium border border-black-200 transition-all bg-gray-50 hover:bg-blue-100 text-sm",
