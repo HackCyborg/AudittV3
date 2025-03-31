@@ -10,15 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { 
-  ChevronDown, 
-  Shield, 
-  User,
-  LogIn,
-  UserPlus,
-  Settings 
-} from "lucide-react";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { ChevronDown, Shield } from "lucide-react";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -32,42 +24,17 @@ const Navbar = () => {
     <header className="sticky top-0 bg-white border-b border-gray-200 shadow-sm z-50">
       <div className="container mx-auto px-4 md:px-6 max-w-7xl">
         <div className="flex items-center h-16 md:h-20">
-          {/* Logo (left aligned) */}
-          <div className="flex-shrink-0">
+          {/* Logo (far left) */}
+          <div className="flex-shrink-0 mr-8">
             <Link href="/" className="flex items-center space-x-2">
               <AudittLogo className="h-8 w-8" />
               <span className="text-xl font-bold text-gray-900">Auditt</span>
             </Link>
           </div>
 
-          {/* Desktop Navigation (separated from logo, with spacing) */}
-          <nav className="hidden md:flex items-center mx-auto">
+          {/* Desktop Navigation (center, with good spacing) */}
+          <nav className="hidden md:flex flex-1 items-center justify-center">
             <div className="flex items-center space-x-8">
-              <DropdownMenu>
-                <DropdownMenuTrigger
-                  className={cn(
-                    "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                    (isActiveLink("/business") || isActiveLink("/compliance")) &&
-                      "text-gray-900",
-                  )}
-                >
-                  <span>Business</span>
-                  <ChevronDown className="h-4 w-4 ml-1" />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="center" className="w-48">
-                  <DropdownMenuItem asChild>
-                    <Link href="/business" className="w-full cursor-pointer">
-                      Overview
-                    </Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link href="/post-project" className="w-full cursor-pointer">
-                      Post a Project
-                    </Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-
               <DropdownMenu>
                 <DropdownMenuTrigger
                   className={cn(
@@ -77,7 +44,7 @@ const Navbar = () => {
                       "text-gray-900",
                   )}
                 >
-                  <span>Hackers</span>
+                  <span>For Auditors</span>
                   <ChevronDown className="h-4 w-4 ml-1" />
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="center" className="w-48">
@@ -94,28 +61,34 @@ const Navbar = () => {
                       Verified Network
                     </Link>
                   </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  className={cn(
+                    "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                    (isActiveLink("/business") || isActiveLink("/compliance")) &&
+                      "text-gray-900",
+                  )}
+                >
+                  <span>For Business</span>
+                  <ChevronDown className="h-4 w-4 ml-1" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="center" className="w-48">
                   <DropdownMenuItem asChild>
-                    <Link href="/contributors" className="w-full cursor-pointer">
-                      For Contributors
+                    <Link href="/business" className="w-full cursor-pointer">
+                      Overview
+                    </Link>
+                  </DropdownMenuItem>
+
+                  <DropdownMenuItem asChild>
+                    <Link href="/post-project" className="w-full cursor-pointer">
+                      Post a Project
                     </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-
-              <div className="flex-shrink-0 text-gray-600 text-sm font-medium relative">
-                <div className="absolute -top-1 -right-2.5 flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-[10px] font-medium text-white">
-                  AI
-                </div>
-                <Link 
-                  href="/agentic-audit"
-                  className={cn(
-                    "nav-item text-gray-600 hover:text-gray-900 whitespace-nowrap",
-                    isActiveLink("/agentic-audit") && "text-gray-900"
-                  )}  
-                >
-                  Security AI Agents
-                </Link>
-              </div>
 
               <Link
                 href="/bug-bounty"
@@ -124,27 +97,7 @@ const Navbar = () => {
                   isActiveLink("/bug-bounty") && "text-gray-900",
                 )}
               >
-                Bounties
-              </Link>
-
-              <Link
-                href="/auditors"
-                className={cn(
-                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                  isActiveLink("/auditors") && "text-gray-900",
-                )}
-              >
-                Audits
-              </Link>
-
-              <Link
-                href="/forum"
-                className={cn(
-                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                  isActiveLink("/forum") && "text-gray-900",
-                )}
-              >
-                Blog
+                Bug Bounty
               </Link>
 
               <Link
@@ -154,52 +107,73 @@ const Navbar = () => {
                   isActiveLink("/compliance") && "text-gray-900",
                 )}
               >
-                Contacts
+                Regulatory & Compliance
+              </Link>
+
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  className={cn(
+                    "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                    (isActiveLink("/community") ||
+                      isActiveLink("/forum")) &&
+                      "text-gray-900",
+                  )}
+                >
+                  <span>Community</span>
+                  <ChevronDown className="h-4 w-4 ml-1" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="center" className="w-48">
+                  <DropdownMenuItem asChild>
+                    <Link href="/community" className="w-full cursor-pointer">
+                      Community Home
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/forum" className="w-full cursor-pointer">
+                      Discussion Forum
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+
+              <Link
+                href="/contributors"
+                className={cn(
+                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                  isActiveLink("/contributors") && "text-gray-900",
+                )}
+              >
+                For Contributors
               </Link>
 
               <Link
-                href="/community"
+                href="/agentic-audit"
                 className={cn(
-                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                  isActiveLink("/community") && "text-gray-900",
+                  "flex items-center whitespace-nowrap text-yellow-900 px-3 py-1 rounded-full font-medium border border-black-200 transition-all bg-gray-50 hover:bg-blue-100 text-sm",
+                  isActiveLink("/agentic-audit") && "bg-gray-100",
                 )}
               >
-                Community
+                <Shield className="h-4 w-4 mr-1" />
+                <span>Agentic Audit</span>
               </Link>
             </div>
           </nav>
 
-          {/* Profile Dropdown (right) */}
-          <div className="hidden md:flex items-center ml-auto">
-            <DropdownMenu>
-              <DropdownMenuTrigger className="outline-none">
-                <Avatar className="h-10 w-10 bg-gray-200 hover:bg-gray-300 transition-colors">
-                  <AvatarFallback>
-                    <User className="h-5 w-5 text-gray-700" />
-                  </AvatarFallback>
-                </Avatar>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-56">
-                <DropdownMenuItem asChild>
-                  <Link href="/sign-in" className="w-full cursor-pointer">
-                    <LogIn className="mr-2 h-4 w-4" />
-                    <span>Sign In</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/post-project" className="w-full cursor-pointer">
-                    <UserPlus className="mr-2 h-4 w-4" />
-                    <span>Get Started</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/settings" className="w-full cursor-pointer">
-                    <Settings className="mr-2 h-4 w-4" />
-                    <span>Account Settings</span>
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+          {/* CTA Buttons (far right) */}
+          <div className="hidden md:flex items-center space-x-4 ml-auto">
+            <Link href="/sign-in">
+              <Button
+                variant="link"
+                className="text-gray-700 font-medium hover:text-gray-900"
+              >
+                Sign In
+              </Button>
+            </Link>
+            <Link href="/post-project">
+              <Button className="bg-[#032757] text-white hover:bg-[#032757]/90">
+                Get Started
+              </Button>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
