@@ -1,5 +1,5 @@
 import React from "react";
-import { icons, Shield, ShieldCheck, FileEdit } from "lucide-react";
+import { icons, Shield, ShieldCheck, FileEdit, LockKeyhole } from "lucide-react";
 import {
   SiEthereum,
   SiPolygon,
@@ -14,51 +14,50 @@ import {
   SiMonero,
   SiBitcoin,
 } from "react-icons/si";
-import BackgroundAnimation from "../animations/background-animation";
 
 const HeroSection: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-gray-900 text-white">
       {/* Light gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-gray-100 z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f5f8ff] to-[#e8f0ff] z-0"></div>
       <div className="absolute inset-0 bg-grid-pattern opacity-10 z-0"></div>
 
       <div className="relative z-10 h-[600px] flex flex-col items-center justify-center">
         <div className="w-full max-w-5xl mx-auto px-4 text-center relative">
-          <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium mb-6 animate-pulse">
-            <lock-keyhole className="h-4 w-4 mr-2" /> Welcome to Auditt
+          <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#032757]/10 text-[#032757] text-sm font-medium mb-6">
+            <LockKeyhole className="h-4 w-4 mr-2" /> Welcome to Auditt
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight animate-fade-in text-gray-300">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight text-[#032757]">
             Trust in Every Transaction,
             <br />
             Transparency in Every Audit
           </h1>
 
-          <p className="text-lg mb-10 text-gray-300 max-w-2xl mx-auto animate-fade-in delay-200">
+          <p className="text-lg mb-10 text-gray-700 max-w-2xl mx-auto">
             Auditt is a pioneering web3 platform that allows auditors to upload
             their audits to a blockchain, creating an on-chain, transparent, and
             verifiable database.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center animate-slide-up">
+          <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-center">
             <button
               onClick={() => window.open("/bug-bounty", "_self")}
-              className="inline-flex items-center bg-gray-700 hover:bg-gray-600 text-white text-base rounded-lg transition-all px-6 py-3 cursor-pointer shadow-md shadow-gray-500"
+              className="inline-flex items-center bg-black hover:bg-gray-800 text-white text-base rounded-lg transition-all px-6 py-3 cursor-pointer shadow-md"
             >
               <Shield className="h-5 w-5 mr-2" /> Explore Bug Bounties
             </button>
             <button
               onClick={() => window.open("/post-project", "_self")}
-              className="inline-flex items-center bg-gray-800 hover:bg-gray-700 text-white text-base rounded-lg transition-all px-6 py-3 cursor-pointer shadow-md shadow-gray-600"
+              className="inline-flex items-center bg-black hover:bg-gray-800 text-white text-base rounded-lg transition-all px-6 py-3 cursor-pointer shadow-md"
             >
               <FileEdit className="h-5 w-5 mr-2" /> Post Your Project
             </button>
             <button
-              onClick={() => window.open("/verified-auditors", "_self")}
-              className="inline-flex items-center bg-gray-600 hover:bg-gray-500 text-white text-base rounded-lg transition-all px-6 py-3 cursor-pointer shadow-md shadow-gray-700"
+              onClick={() => window.open("http://4.247.133.175:5678/", "_blank")}
+              className="inline-flex items-center bg-black hover:bg-gray-800 text-white text-base rounded-lg transition-all px-6 py-3 cursor-pointer shadow-md"
             >
-              <ShieldCheck className="h-5 w-5 mr-2" /> Verified Auditor Network
+              <ShieldCheck className="h-5 w-5 mr-2" /> Find an Auditor
             </button>
           </div>
         </div>
