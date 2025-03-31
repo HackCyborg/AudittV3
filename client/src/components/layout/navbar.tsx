@@ -28,7 +28,7 @@ const Navbar = () => {
           {/* Logo (far left) */}
           <div className="flex-shrink-0 mr-8">
             <Link href="/" className="flex items-left space-x-2">
-              <img src={audittLogoJpeg} alt="Auditt Logo" className="h-10" />
+              <img src={audittLogoJpeg} alt="Auditt Logo" className="h-16 md:h-20" />
               <span className="text-xl font-bold text-gray-900"></span>
             </Link>
           </div>
