@@ -1,8 +1,29 @@
 import React from 'react';
 import { Link, useLocation } from 'wouter';
 import { cn } from '@/lib/utils';
-import { Shield, ChevronRight } from 'lucide-react';
+import { 
+  Shield, 
+  ChevronRight,
+  User,
+  LogIn,
+  UserPlus,
+  Settings,
+  BookOpen,
+  MessageSquare,
+  FileCode,
+  Users,
+  Globe,
+  Phone,
+  Code
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -28,130 +49,166 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen }) => {
       )}
     >
       <div className="px-4 py-4 bg-white">
-        {/* Navigation links in a single row, matching desktop */}
-        <div className="flex flex-col space-y-4">
-          {/* For Auditors Section */}
-          <div className="space-y-2">
-            <div className="font-medium text-gray-900">For Auditors</div>
-            <div className="space-y-2 pl-2">
+        {/* Profile Section */}
+        <div className="flex items-center mb-6 pb-4 border-b border-gray-200">
+          <Avatar className="h-12 w-12 bg-gray-200">
+            <AvatarFallback>
+              <User className="h-6 w-6 text-gray-700" />
+            </AvatarFallback>
+          </Avatar>
+          <div className="ml-3">
+            <h3 className="text-gray-900 font-medium">Account</h3>
+            <div className="flex space-x-3 mt-1">
               <Link 
-                href="/auditors" 
+                href="/sign-in" 
                 onClick={handleLinkClick}
-                className={cn(
-                  "block py-1 text-gray-700 hover:text-gray-900",
-                  isActiveLink("/auditors") && "text-gray-900 font-medium"
-                )}
+                className="text-sm text-blue-600 hover:underline"
               >
-                Security Auditors
+                Sign In
               </Link>
+              <span className="text-gray-300">|</span>
               <Link 
-                href="/verified-auditors" 
+                href="/post-project" 
                 onClick={handleLinkClick}
-                className={cn(
-                  "block py-1 text-gray-700 hover:text-gray-900",
-                  isActiveLink("/verified-auditors") && "text-gray-900 font-medium"
-                )}
+                className="text-sm text-blue-600 hover:underline"
               >
-                Verified Network
+                Get Started
               </Link>
             </div>
           </div>
-          
-          {/* Platform Section */}
-          <div className="space-y-2">
-            <div className="font-medium text-gray-900">Platform</div>
-            <div className="space-y-2 pl-2">
-              <Link 
-                href="/bug-bounty" 
-                onClick={handleLinkClick}
-                className={cn(
-                  "block py-1 text-gray-700 hover:text-gray-900",
-                  isActiveLink("/bug-bounty") && "text-gray-900 font-medium"
-                )}
-              >
-                Bug Bounty
-              </Link>
-              <Link 
-                href="/compliance" 
-                onClick={handleLinkClick}
-                className={cn(
-                  "block py-1 text-gray-700 hover:text-gray-900",
-                  isActiveLink("/compliance") && "text-gray-900 font-medium"
-                )}
-              >
-                Regulatory & Compliance
-              </Link>
-              <Link 
-                href="/contributors" 
-                onClick={handleLinkClick}
-                className={cn(
-                  "block py-1 text-gray-700 hover:text-gray-900",
-                  isActiveLink("/contributors") && "text-gray-900 font-medium"
-                )}
-              >
-                For Contributors
-              </Link>
-              <div className="ml-2 space-y-1 border-l border-gray-200 pl-2">
-                <p className="font-medium text-gray-900 py-1">Community</p>
-                <Link 
-                  href="/community" 
-                  onClick={handleLinkClick}
-                  className={cn(
-                    "block py-1 text-gray-700 hover:text-gray-900 pl-2",
-                    isActiveLink("/community") && "text-gray-900 font-medium"
-                  )}
-                >
-                  Community Home
-                </Link>
-                <Link 
-                  href="/forum" 
-                  onClick={handleLinkClick}
-                  className={cn(
-                    "block py-1 text-gray-700 hover:text-gray-900 pl-2",
-                    isActiveLink("/forum") && "text-gray-900 font-medium"
-                  )}
-                >
-                  Discussion Forum
-                </Link>
-              </div>
-            </div>
-          </div>
-          
-          {/* Agentic Audit */}
-          <Link 
-            href="/agentic-audit" 
-            onClick={handleLinkClick}
-            className={cn(
-              "flex items-center whitespace-nowrap text-yellow-900 px-3 py-2 rounded-full font-medium border border-black-200 transition-all bg-gray-50 hover:bg-blue-100 text-sm w-fit",
-              isActiveLink("/agentic-audit") && "bg-gray-100"
-            )}
-          >
-            <Shield className="h-4 w-4 mr-1" />
-            <span>Agentic Audit</span>
-          </Link>
         </div>
-        
-        {/* CTA Buttons */}
-        <div className="mt-6 flex flex-col space-y-3">
-          <Link 
-            href="/sign-in" 
-            onClick={handleLinkClick}
-          >
-            <Button 
-              variant="outline"
-              className="w-full text-gray-700 font-medium hover:text-gray-900"
+
+        {/* Navigation links */}
+        <div className="flex flex-col">
+          <Accordion type="single" collapsible className="w-full border-b border-gray-200">
+            <AccordionItem value="business" className="border-b-0">
+              <AccordionTrigger className="py-3 text-gray-800 hover:no-underline">
+                Business
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="py-1 space-y-2">
+                  <Link 
+                    href="/business" 
+                    onClick={handleLinkClick}
+                    className="block py-2 text-gray-700 hover:text-gray-900"
+                  >
+                    Overview
+                  </Link>
+                  <Link 
+                    href="/post-project" 
+                    onClick={handleLinkClick}
+                    className="block py-2 text-gray-700 hover:text-gray-900"
+                  >
+                    Post a Project
+                  </Link>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+
+            <AccordionItem value="hackers" className="border-b-0">
+              <AccordionTrigger className="py-3 text-gray-800 hover:no-underline">
+                Hackers
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="py-1 space-y-2">
+                  <Link 
+                    href="/auditors" 
+                    onClick={handleLinkClick}
+                    className="block py-2 text-gray-700 hover:text-gray-900"
+                  >
+                    Security Auditors
+                  </Link>
+                  <Link 
+                    href="/verified-auditors" 
+                    onClick={handleLinkClick}
+                    className="block py-2 text-gray-700 hover:text-gray-900"
+                  >
+                    Verified Network
+                  </Link>
+                  <Link 
+                    href="/contributors" 
+                    onClick={handleLinkClick}
+                    className="block py-2 text-gray-700 hover:text-gray-900"
+                  >
+                    For Contributors
+                  </Link>
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+
+          {/* Standard links */}
+          <div className="py-2 space-y-4 border-b border-gray-200">
+            <div className="relative flex items-center">
+              <div className="absolute -top-1 right-0 flex h-5 w-5 items-center justify-center rounded-full bg-blue-500 text-[10px] font-medium text-white">
+                AI
+              </div>
+              <Link 
+                href="/agentic-audit" 
+                onClick={handleLinkClick}
+                className="block py-2 text-gray-700 hover:text-gray-900 pr-8"
+              >
+                Security AI Agents
+              </Link>
+            </div>
+
+            <Link 
+              href="/bug-bounty" 
+              onClick={handleLinkClick}
+              className="flex items-center py-2 text-gray-700 hover:text-gray-900"
             >
-              Sign In
-            </Button>
-          </Link>
-          <Link 
-            href="/post-project" 
-            onClick={handleLinkClick}
-          >
-            <Button className="w-full bg-[#032757] text-white hover:bg-black">
-              Get Started
-            </Button>
-          </Link>
+              <BookOpen className="h-4 w-4 mr-2 opacity-70" />
+              Bounties
+            </Link>
+
+            <Link 
+              href="/auditors" 
+              onClick={handleLinkClick}
+              className="flex items-center py-2 text-gray-700 hover:text-gray-900"
+            >
+              <FileCode className="h-4 w-4 mr-2 opacity-70" />
+              Audits
+            </Link>
+
+            <Link 
+              href="/forum" 
+              onClick={handleLinkClick}
+              className="flex items-center py-2 text-gray-700 hover:text-gray-900"
+            >
+              <MessageSquare className="h-4 w-4 mr-2 opacity-70" />
+              Blog
+            </Link>
+
+            <Link 
+              href="/compliance" 
+              onClick={handleLinkClick}
+              className="flex items-center py-2 text-gray-700 hover:text-gray-900"
+            >
+              <Phone className="h-4 w-4 mr-2 opacity-70" />
+              Contacts
+            </Link>
+
+            <Link 
+              href="/community" 
+              onClick={handleLinkClick}
+              className="flex items-center py-2 text-gray-700 hover:text-gray-900"
+            >
+              <Users className="h-4 w-4 mr-2 opacity-70" />
+              Community
+            </Link>
+          </div>
+          
+          {/* Account Section */}
+          <div className="mt-6 space-y-3">
+            <Link 
+              href="/settings" 
+              onClick={handleLinkClick}
+              className="flex items-center py-2 text-gray-700 hover:text-gray-900"
+            >
+              <Settings className="h-4 w-4 mr-2 opacity-70" />
+              Account Settings
+            </Link>
+          </div>
         </div>
       </div>
     </div>
