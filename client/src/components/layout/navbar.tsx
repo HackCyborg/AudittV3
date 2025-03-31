@@ -3,14 +3,15 @@ import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import MobileMenu from "./mobile-menu";
-import AudittLogo from "../../assets/auditt-logo";
+import audittLogoJpeg from "../../assets/auditt-logo.jpeg";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown, Shield } from "lucide-react";
+import { ChevronDown, Shield, User } from "lucide-react";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -26,9 +27,9 @@ const Navbar = () => {
         <div className="flex items-center h-16 md:h-20">
           {/* Logo (far left) */}
           <div className="flex-shrink-0 mr-8">
-            <Link href="/" className="flex items-center space-x-2">
-              <AudittLogo className="h-8 w-8" />
-              <span className="text-xl font-bold text-gray-900">Auditt</span>
+            <Link href="/" className="flex items-left space-x-2">
+              <img src={audittLogoJpeg} alt="Auditt Logo" className="h-10" />
+              <span className="text-xl font-bold text-gray-900"></span>
             </Link>
           </div>
 
@@ -68,7 +69,8 @@ const Navbar = () => {
                 <DropdownMenuTrigger
                   className={cn(
                     "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                    (isActiveLink("/business") || isActiveLink("/compliance")) &&
+                    (isActiveLink("/business") ||
+                      isActiveLink("/compliance")) &&
                       "text-gray-900",
                   )}
                 >
@@ -83,23 +85,24 @@ const Navbar = () => {
                   </DropdownMenuItem>
 
                   <DropdownMenuItem asChild>
-                    <Link href="/post-project" className="w-full cursor-pointer">
+                    <Link
+                      href="/post-project"
+                      className="w-full cursor-pointer"
+                    >
                       Post a Project
                     </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-
               <Link
-                href="/bug-bounty"
+                href="/contributors"
                 className={cn(
                   "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                  isActiveLink("/bug-bounty") && "text-gray-900",
+                  isActiveLink("/contributors") && "text-gray-900",
                 )}
               >
-                Bug Bounty
+                For Contributors
               </Link>
-
               <Link
                 href="/compliance"
                 className={cn(
@@ -114,8 +117,7 @@ const Navbar = () => {
                 <DropdownMenuTrigger
                   className={cn(
                     "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                    (isActiveLink("/community") ||
-                      isActiveLink("/forum")) &&
+                    (isActiveLink("/community") || isActiveLink("/forum")) &&
                       "text-gray-900",
                   )}
                 >
@@ -137,16 +139,6 @@ const Navbar = () => {
               </DropdownMenu>
 
               <Link
-                href="/contributors"
-                className={cn(
-                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                  isActiveLink("/contributors") && "text-gray-900",
-                )}
-              >
-                For Contributors
-              </Link>
-
-              <Link
                 href="/agentic-audit"
                 className={cn(
                   "flex items-center whitespace-nowrap text-yellow-900 px-3 py-1 rounded-full font-medium border border-black-200 transition-all bg-gray-50 hover:bg-blue-100 text-sm",
@@ -159,21 +151,42 @@ const Navbar = () => {
             </div>
           </nav>
 
-          {/* CTA Buttons (far right) */}
-          <div className="hidden md:flex items-center space-x-4 ml-auto">
-            <Link href="/sign-in">
-              <Button
-                variant="link"
-                className="text-gray-700 font-medium hover:text-gray-900"
-              >
-                Sign In
-              </Button>
-            </Link>
-            <Link href="/post-project">
-              <Button className="bg-[#032757] text-white hover:bg-[#032757]/90">
-                Get Started
-              </Button>
-            </Link>
+          {/* User Profile Icon (far right) */}
+          <div className="hidden md:flex items-center ml-auto">
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  variant="ghost" 
+                  size="icon" 
+                  className="h-10 w-10 rounded-full bg-gray-100 hover:bg-gray-200"
+                >
+                  <User className="h-5 w-5 text-gray-700" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem asChild>
+                  <Link href="/profile" className="w-full cursor-pointer">
+                    My Profile
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/dashboard" className="w-full cursor-pointer">
+                    Dashboard
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/settings" className="w-full cursor-pointer">
+                    Settings
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem asChild>
+                  <Link href="/logout" className="w-full cursor-pointer">
+                    Logout
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Mobile Menu Button */}

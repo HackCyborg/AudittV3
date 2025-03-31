@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'wouter';
 import { cn } from '@/lib/utils';
-import { Shield, ChevronRight } from 'lucide-react';
+import { Shield, ChevronRight, User, Settings, LogOut, LayoutDashboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 interface MobileMenuProps {
@@ -131,27 +131,45 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen }) => {
           </Link>
         </div>
         
-        {/* CTA Buttons */}
-        <div className="mt-6 flex flex-col space-y-3">
-          <Link 
-            href="/sign-in" 
-            onClick={handleLinkClick}
-          >
-            <Button 
-              variant="outline"
-              className="w-full text-gray-700 font-medium hover:text-gray-900"
+        {/* User Profile Section */}
+        <div className="mt-6">
+          <div className="font-medium text-gray-900 mb-3">Profile</div>
+          <div className="flex flex-col space-y-3 pl-2">
+            <Link 
+              href="/profile" 
+              onClick={handleLinkClick}
+              className="flex items-center text-gray-700 py-2 hover:text-gray-900"
             >
-              Sign In
-            </Button>
-          </Link>
-          <Link 
-            href="/post-project" 
-            onClick={handleLinkClick}
-          >
-            <Button className="w-full bg-[#032757] text-white hover:bg-black">
-              Get Started
-            </Button>
-          </Link>
+              <User className="h-4 w-4 mr-2" />
+              <span>My Profile</span>
+            </Link>
+            <Link 
+              href="/dashboard" 
+              onClick={handleLinkClick}
+              className="flex items-center text-gray-700 py-2 hover:text-gray-900"
+            >
+              <LayoutDashboard className="h-4 w-4 mr-2" />
+              <span>Dashboard</span>
+            </Link>
+            <Link 
+              href="/settings" 
+              onClick={handleLinkClick}
+              className="flex items-center text-gray-700 py-2 hover:text-gray-900"
+            >
+              <Settings className="h-4 w-4 mr-2" />
+              <span>Settings</span>
+            </Link>
+            <div className="border-t border-gray-200 pt-2">
+              <Link 
+                href="/logout" 
+                onClick={handleLinkClick}
+                className="flex items-center text-red-600 py-2 hover:text-red-700"
+              >
+                <LogOut className="h-4 w-4 mr-2" />
+                <span>Logout</span>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
