@@ -23,12 +23,16 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 bg-white border-b border-gray-200 shadow-sm z-50">
-      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
+      <div className="container mx-auto px-6 md:px-6 max-w-7xl">
         <div className="flex items-center h-16 md:h-20">
           {/* Logo (far left) */}
           <div className="flex-shrink-0 mr-8">
             <Link href="/" className="flex items-left space-x-2">
-              <img src={audittLogoJpeg} alt="Auditt Logo" className="h-16 md:h-20" />
+              <img
+                src={audittLogoJpeg}
+                alt="Auditt Logo"
+                className="h-16 md:h-20"
+              />
               <span className="text-xl font-bold text-gray-900"></span>
             </Link>
           </div>
