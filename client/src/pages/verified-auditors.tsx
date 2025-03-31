@@ -44,6 +44,7 @@ const VerifiedAuditors: React.FC = () => {
                 <Button
                   size="lg"
                   className="bg-white hover:bg-white/90 text-[#00264d]"
+                  onClick={() => window.location.href = "http://4.247.133.175:5678/"}
                 >
                   Find an Auditor <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -241,7 +242,10 @@ const VerifiedAuditors: React.FC = () => {
               </div>
 
               <div className="mt-6">
-                <Button className="w-full bg-secondary-500 hover:bg-secondary-600 text-white">
+                <Button 
+                  className="w-full bg-secondary-500 hover:bg-secondary-600 text-white"
+                  onClick={() => window.location.href = "http://4.247.133.175:5678/"}
+                >
                   Find Specialists
                 </Button>
               </div>
@@ -311,6 +315,7 @@ const VerifiedAuditors: React.FC = () => {
                   <Button
                     variant="outline"
                     className="w-full border-secondary-500 text-[#032757] hover:bg-secondary-50"
+                    onClick={() => window.location.href = "http://4.247.133.175:5678/"}
                   >
                     View Profile
                   </Button>
@@ -323,6 +328,7 @@ const VerifiedAuditors: React.FC = () => {
             <Button
               variant="outline"
               className="bg-secondary-500 hover:bg-secondary-600 text-[#032757]"
+              onClick={() => window.location.href = "http://4.247.133.175:5678/"}
             >
               View All Verified Auditors
             </Button>
@@ -345,6 +351,7 @@ const VerifiedAuditors: React.FC = () => {
               variant="outline"
               className="bg-white text-[#032757] hover:bg-blue/90"
               size="lg"
+              onClick={() => window.location.href = "http://4.247.133.175:5678/"}
             >
               Find an Auditor <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
