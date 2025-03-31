@@ -26,20 +26,19 @@ const Navbar = () => {
       <div className="container mx-auto px-6 md:px-6 max-w-7xl">
         <div className="flex items-center h-16 md:h-20">
           {/* Logo (far left) */}
-          <div className="flex-shrink-0 mr-8">
-            <Link href="/" className="flex items-left space-x-2">
-              <img
-                src={audittLogoJpeg}
-                alt="Auditt Logo"
-                className="h-16 md:h-20"
-              />
-              <span className="text-xl font-bold text-gray-900"></span>
-            </Link>
-          </div>
+          <div className="flex items-center space-x-8 flex-1">
+            <div className="flex-shrink-0">
+              <Link href="/" className="flex items-center">
+                <img
+                  src={audittLogoJpeg}
+                  alt="Auditt Logo"
+                  className="h-16 md:h-20 py-2"
+                />
+              </Link>
+            </div>
 
-          {/* Desktop Navigation (center, with good spacing) */}
-          <nav className="hidden md:flex flex-1 items-center justify-center">
-            <div className="flex items-center space-x-8">
+            {/* Desktop Navigation (left-aligned) */}
+            <nav className="hidden md:flex items-center space-x-6">
               <DropdownMenu>
                 <DropdownMenuTrigger
                   className={cn(
@@ -151,67 +150,67 @@ const Navbar = () => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
+            </nav>
+
+            {/* User Profile Icon (far right) */}
+            <div className="hidden md:flex items-center ml-auto">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="h-10 w-10 rounded-full bg-gray-100 hover:bg-gray-200"
+                  >
+                    <User className="h-5 w-5 text-gray-700" />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuItem asChild>
+                    <Link href="/profile" className="w-full cursor-pointer">
+                      My Profile
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/dashboard" className="w-full cursor-pointer">
+                      Dashboard
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/settings" className="w-full cursor-pointer">
+                      Settings
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link href="/logout" className="w-full cursor-pointer">
+                      Logout
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             </div>
-          </nav>
 
-          {/* User Profile Icon (far right) */}
-          <div className="hidden md:flex items-center ml-auto">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="h-10 w-10 rounded-full bg-gray-100 hover:bg-gray-200"
-                >
-                  <User className="h-5 w-5 text-gray-700" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="end" className="w-48">
-                <DropdownMenuItem asChild>
-                  <Link href="/profile" className="w-full cursor-pointer">
-                    My Profile
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/dashboard" className="w-full cursor-pointer">
-                    Dashboard
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link href="/settings" className="w-full cursor-pointer">
-                    Settings
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link href="/logout" className="w-full cursor-pointer">
-                    Logout
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden ml-auto rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none"
-          >
-            <svg
-              className="h-6 w-6"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden ml-auto rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h16m-7 6h7"
-              />
-            </svg>
-          </button>
+              <svg
+                className="h-6 w-6"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 

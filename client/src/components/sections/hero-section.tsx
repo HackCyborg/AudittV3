@@ -19,11 +19,9 @@ import BackgroundAnimation from "../animations/background-animation";
 const HeroSection: React.FC = () => {
   return (
     <section className="relative overflow-hidden bg-gray-900 text-white">
-      {/* Lottie Animation Background */}
-      <BackgroundAnimation opacity={0.4} className="hero-animation" />
-
-      {/* Gradient Overlay with reduced opacity to see animation better */}
-      <div className="absolute inset-0 z-1 bg-gradient-to-b from-gray-900/90 via-gray-900/80 to-gray-900/90"></div>
+      {/* Light gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-gray-50 to-gray-100 z-0"></div>
+      <div className="absolute inset-0 bg-grid-pattern opacity-10 z-0"></div>
 
       <div className="relative z-10 h-[600px] flex flex-col items-center justify-center">
         <div className="w-full max-w-5xl mx-auto px-4 text-center relative">

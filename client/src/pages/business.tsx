@@ -17,7 +17,7 @@ const Business: React.FC = () => {
       {/* Hero Section */}
       <section className="relative py-20 lg:py-28 overflow-hidden">
         {/* Background Elements */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#032757] to-blue-600 z-0"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#001c3a] to-[#00264d] z-0"></div>
         <div className="absolute inset-0 bg-grid-pattern opacity-10 z-0"></div>
         <div className="absolute top-1/4 -left-24 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-24 -right-24 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"></div>
