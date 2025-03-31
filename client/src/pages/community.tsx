@@ -96,16 +96,18 @@ const Community: React.FC = () => {
                 the latest security practices.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-white hover:bg-white/90 text-[#00264d]"
-                >
-                  Join Community <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                <Link href="/forum">
+                  <Button
+                    size="lg"
+                    className="bg-white hover:bg-white/90 text-[#00264d]"
+                  >
+                    Join Community <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
                 <Button
                   size="lg"
                   variant="outline"
-                  className="border-white text-white hover:bg-white/10"
+                  className="border-white text-[#032757] hover:bg-white/10"
                 >
                   View Resources
                 </Button>
@@ -132,7 +134,7 @@ const Community: React.FC = () => {
                 title: "Discussion Forums",
                 description:
                   "Engage in discussions about Web3 security topics, share insights, and get help with security challenges.",
-                link: "#forums",
+                link: "/forum",
               },
               {
                 icon: <Calendar className="h-12 w-12 text-primary-600" />,
@@ -366,9 +368,11 @@ const Community: React.FC = () => {
             </div>
 
             <div className="mt-8 text-center">
-              <Button className="bg-[#032757] hover:bg-black text-white">
-                Visit Community Forum
-              </Button>
+              <Link href="/forum">
+                <Button className="bg-[#032757] hover:bg-black text-white">
+                  Visit Community Forum
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

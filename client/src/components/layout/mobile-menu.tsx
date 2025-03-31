@@ -101,6 +101,16 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, setIsOpen }) => {
               >
                 Community
               </Link>
+              <Link 
+                href="/forum" 
+                onClick={handleLinkClick}
+                className={cn(
+                  "block py-1 text-gray-700 hover:text-gray-900",
+                  isActiveLink("/forum") && "text-gray-900 font-medium"
+                )}
+              >
+                Forum
+              </Link>
             </div>
           </div>
           

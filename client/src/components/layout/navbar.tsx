@@ -121,6 +121,16 @@ const Navbar = () => {
               </Link>
 
               <Link
+                href="/forum"
+                className={cn(
+                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                  isActiveLink("/forum") && "text-gray-900",
+                )}
+              >
+                Forum
+              </Link>
+
+              <Link
                 href="/contributors"
                 className={cn(
                   "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",

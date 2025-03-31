@@ -13,6 +13,7 @@ import VerifiedAuditors from "@/pages/verified-auditors";
 import Contributors from "@/pages/contributors";
 import Compliance from "@/pages/compliance";
 import Community from "@/pages/community";
+import Forum from "@/pages/forum";
 import ProgressTrackers from "@/pages/progress-trackers";
 import PostProjectNew from "@/pages/post-project-new";
 import AgenticAudit from "@/pages/agentic-audit";
@@ -35,6 +36,7 @@ function App() {
           <Route path="/contributors" component={Contributors} />
           <Route path="/compliance" component={Compliance} />
           <Route path="/community" component={Community} />
+          <Route path="/forum" component={Forum} />
           <Route path="/progress-trackers" component={ProgressTrackers} />
           <Route path="/post-project" component={PostProjectNew} />
           <Route path="/agentic-audit" component={AgenticAudit} />
