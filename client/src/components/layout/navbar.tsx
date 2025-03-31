@@ -110,25 +110,31 @@ const Navbar = () => {
                 Regulatory & Compliance
               </Link>
 
-              <Link
-                href="/community"
-                className={cn(
-                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                  isActiveLink("/community") && "text-gray-900",
-                )}
-              >
-                Community
-              </Link>
-
-              <Link
-                href="/forum"
-                className={cn(
-                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
-                  isActiveLink("/forum") && "text-gray-900",
-                )}
-              >
-                Forum
-              </Link>
+              <DropdownMenu>
+                <DropdownMenuTrigger
+                  className={cn(
+                    "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                    (isActiveLink("/community") ||
+                      isActiveLink("/forum")) &&
+                      "text-gray-900",
+                  )}
+                >
+                  <span>Community</span>
+                  <ChevronDown className="h-4 w-4 ml-1" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="center" className="w-48">
+                  <DropdownMenuItem asChild>
+                    <Link href="/community" className="w-full cursor-pointer">
+                      Community Home
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/forum" className="w-full cursor-pointer">
+                      Discussion Forum
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
 
               <Link
                 href="/contributors"
