@@ -104,6 +104,16 @@ const Navbar = () => {
                 For Contributors
               </Link>
               <Link
+                href="/agentic-audit"
+                className={cn(
+                  "flex items-center whitespace-nowrap text-yellow-900 px-3 py-1 rounded-full font-medium border border-black-200 transition-all bg-gray-50 hover:bg-blue-100 text-sm",
+                  isActiveLink("/agentic-audit") && "bg-gray-100",
+                )}
+              >
+                <Shield className="h-4 w-4 mr-1" />
+                <span>Agentic Audit</span>
+              </Link>
+              <Link
                 href="/compliance"
                 className={cn(
                   "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
@@ -137,17 +147,6 @@ const Navbar = () => {
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
-
-              <Link
-                href="/agentic-audit"
-                className={cn(
-                  "flex items-center whitespace-nowrap text-yellow-900 px-3 py-1 rounded-full font-medium border border-black-200 transition-all bg-gray-50 hover:bg-blue-100 text-sm",
-                  isActiveLink("/agentic-audit") && "bg-gray-100",
-                )}
-              >
-                <Shield className="h-4 w-4 mr-1" />
-                <span>Agentic Audit</span>
-              </Link>
             </div>
           </nav>
 
@@ -155,9 +154,9 @@ const Navbar = () => {
           <div className="hidden md:flex items-center ml-auto">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button 
-                  variant="ghost" 
-                  size="icon" 
+                <Button
+                  variant="ghost"
+                  size="icon"
                   className="h-10 w-10 rounded-full bg-gray-100 hover:bg-gray-200"
                 >
                   <User className="h-5 w-5 text-gray-700" />

@@ -1,6 +1,19 @@
 import React from "react";
-import { Shield, ShieldCheck, FileEdit } from "lucide-react";
-import { SiEthereum, SiPolygon, SiChainlink, SiBinance, SiSolana, SiZcash, SiRipple, SiLitecoin, SiStellar, SiDogecoin, SiMonero, SiBitcoin } from "react-icons/si";
+import { icons, Shield, ShieldCheck, FileEdit } from "lucide-react";
+import {
+  SiEthereum,
+  SiPolygon,
+  SiChainlink,
+  SiBinance,
+  SiSolana,
+  SiZcash,
+  SiRipple,
+  SiLitecoin,
+  SiStellar,
+  SiDogecoin,
+  SiMonero,
+  SiBitcoin,
+} from "react-icons/si";
 import BackgroundAnimation from "../animations/background-animation";
 
 const HeroSection: React.FC = () => {
@@ -8,14 +21,14 @@ const HeroSection: React.FC = () => {
     <section className="relative overflow-hidden bg-gray-900 text-white">
       {/* Lottie Animation Background */}
       <BackgroundAnimation opacity={0.4} className="hero-animation" />
-      
+
       {/* Gradient Overlay with reduced opacity to see animation better */}
       <div className="absolute inset-0 z-1 bg-gradient-to-b from-gray-900/90 via-gray-900/80 to-gray-900/90"></div>
 
       <div className="relative z-10 h-[600px] flex flex-col items-center justify-center">
         <div className="w-full max-w-5xl mx-auto px-4 text-center relative">
           <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/10 text-white text-sm font-medium mb-6 animate-pulse">
-            <Shield className="h-4 w-4 mr-2" /> Welcome to Auditt
+            <lock-keyhole className="h-4 w-4 mr-2" /> Welcome to Auditt
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight animate-fade-in text-gray-300">
@@ -60,7 +73,7 @@ const HeroSection: React.FC = () => {
             <div className="inline-block mb-8 px-4 py-1 bg-gray-900 border border-gray-800 rounded-full text-sm font-medium text-gray-300 animate-pulse">
               Trusted by Industry Leaders
             </div>
-            
+
             {/* Marquee Slider */}
             <div className="marquee-container">
               <div className="marquee-content">
@@ -83,7 +96,7 @@ const HeroSection: React.FC = () => {
                 <div className="partner-logo-wrapper">
                   <SiZcash className="h-10 w-10 text-gray-300 opacity-70 hover:opacity-100 transition-opacity" />
                 </div>
-                
+
                 {/* Second set of logos (duplicate to make seamless loop) */}
                 <div className="partner-logo-wrapper">
                   <SiEthereum className="h-10 w-10 text-gray-300 opacity-70 hover:opacity-100 transition-opacity" />
@@ -105,7 +118,7 @@ const HeroSection: React.FC = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Second row with reverse animation */}
             <div className="marquee-container mt-8">
               <div className="marquee-content-reverse">
@@ -128,7 +141,7 @@ const HeroSection: React.FC = () => {
                 <div className="partner-logo-wrapper">
                   <SiBitcoin className="h-10 w-10 text-gray-300 opacity-70 hover:opacity-100 transition-opacity" />
                 </div>
-                
+
                 {/* Second set of logos for second row (duplicate) */}
                 <div className="partner-logo-wrapper">
                   <SiRipple className="h-10 w-10 text-gray-300 opacity-70 hover:opacity-100 transition-opacity" />
