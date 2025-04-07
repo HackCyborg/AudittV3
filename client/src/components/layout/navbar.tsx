@@ -22,9 +22,9 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 bg-white border-b border-gray-200 shadow-sm z-50">
-      <div className="container mx-auto px-0 md:px-0 max-w-full">
-        <div className="flex items-center justify-between h-16 md:h-16">
+    <header className="sticky top-0 bg-[#032757] border-b border-gray-200 shadow-sm z-50">
+      <div className="container mx-auto px-12 md:px-5 max-w-full">
+        <div className="flex items-center justify-between h-18 md:h-16">
           {/* Logo and Navigation */}
           <div className="flex items-center">
             <div className="flex-shrink-0 ml-2">
@@ -32,7 +32,7 @@ const Navbar = () => {
                 <img
                   src={audittLogoJpeg}
                   alt="Auditt Logo"
-                  className="h-14 py-1"
+                  className="h-16 py-0"
                 />
               </Link>
             </div>
@@ -42,7 +42,7 @@ const Navbar = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger
                   className={cn(
-                    "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                    "nav-item flex items-center text-white hover:text-black font-medium whitespace-nowrap text-sm",
                     (isActiveLink("/auditors") ||
                       isActiveLink("/verified-auditors")) &&
                       "text-gray-900",
@@ -71,10 +71,10 @@ const Navbar = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger
                   className={cn(
-                    "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                    "nav-item flex items-center text-white hover:text-black font-medium whitespace-nowrap text-sm",
                     (isActiveLink("/business") ||
                       isActiveLink("/compliance")) &&
-                      "text-gray-900",
+                      "text-white-900",
                   )}
                 >
                   <span>For Business</span>
@@ -100,7 +100,7 @@ const Navbar = () => {
               <Link
                 href="/contributors"
                 className={cn(
-                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                  "nav-item text-white hover:text-black font-medium whitespace-nowrap text-sm",
                   isActiveLink("/contributors") && "text-gray-900",
                 )}
               >
@@ -119,7 +119,7 @@ const Navbar = () => {
               <Link
                 href="/compliance"
                 className={cn(
-                  "nav-item text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                  "nav-item text-white hover:text-black font-medium whitespace-nowrap text-sm",
                   isActiveLink("/compliance") && "text-gray-900",
                 )}
               >
@@ -129,7 +129,7 @@ const Navbar = () => {
               <DropdownMenu>
                 <DropdownMenuTrigger
                   className={cn(
-                    "nav-item flex items-center text-gray-600 hover:text-gray-900 font-medium whitespace-nowrap text-sm",
+                    "nav-item flex items-center text-white hover:text-black font-medium whitespace-nowrap text-sm",
                     (isActiveLink("/community") || isActiveLink("/forum")) &&
                       "text-gray-900",
                   )}
@@ -152,7 +152,7 @@ const Navbar = () => {
               </DropdownMenu>
             </nav>
           </div>
-          
+
           {/* Right side with profile and mobile menu */}
           <div className="flex items-center">
             {/* User Profile Icon */}
